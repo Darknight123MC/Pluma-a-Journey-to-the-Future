@@ -55,84 +55,84 @@ item.contenttweaker.emeradicplate.name=§2绿宝石水晶板
 item.contenttweaker.voidplate.name=§8煤晶板
 item.contenttweaker.palisplate.name=§1青金石水晶板
 
-item.contenttweaker.enorigear.name=§7Enori Gear
-item.contenttweaker.restoniagear.name=§4Restonia Gear
-item.contenttweaker.diamatinegear.name=§9Diamantine Gear
-item.contenttweaker.emeradicgear.name=§2Emeradic Gear
-item.contenttweaker.voidgear.name=§8Void Gear
-item.contenttweaker.palisgear.name=§1Palis Gear
+item.contenttweaker.enorigear.name=§7铁晶齿轮
+item.contenttweaker.restoniagear.name=§4红石水晶齿轮
+item.contenttweaker.diamatinegear.name=§9钻石水晶齿轮
+item.contenttweaker.emeradicgear.name=§2绿宝石水晶齿轮
+item.contenttweaker.voidgear.name=§8煤晶齿轮
+item.contenttweaker.palisgear.name=§1青金石水晶齿轮
 
-item.contenttweaker.empoweredenorigear.name=§7Empowered Enori Gear
-item.contenttweaker.empoweredrestoniagear.name=§4Empowered Restonia Gear
-item.contenttweaker.empowereddiamatinegear.name=§9Empowered Diamantine Gear
-item.contenttweaker.empoweredemeradicgear.name=§2Empowered Emeradic Gear
-item.contenttweaker.empoweredvoidgear.name=§8Empowered Void Gear
-item.contenttweaker.empoweredpalisgear.name=§1Empowered Palis Gear
+item.contenttweaker.empoweredenorigear.name=§7充能铁晶齿轮
+item.contenttweaker.empoweredrestoniagear.name=§4充能红石水晶齿轮
+item.contenttweaker.empowereddiamatinegear.name=§9充能钻石水晶齿轮
+item.contenttweaker.empoweredemeradicgear.name=§2充能绿宝石水晶齿轮
+item.contenttweaker.empoweredvoidgear.name=§8充能煤晶齿轮
+item.contenttweaker.empoweredpalisgear.name=§1充能青金石水晶齿轮
 
-item.contenttweaker.empoweredenoriplate.name=§7Empowered Enori Plate
-item.contenttweaker.empoweredrestoniaplate.name=§4Empowered Restonia Plate
-item.contenttweaker.empowereddiamatineplate.name=§9Empowered Diamantine Plate
-item.contenttweaker.empoweredemeradicplate.name=§2Empowered Emeradic Plate
-item.contenttweaker.empoweredvoidplate.name=§8Empowered Void Plate
-item.contenttweaker.empoweredpalisplate.name=§1Empowered Palis Plate
+item.contenttweaker.empoweredenoriplate.name=§7充能铁晶板
+item.contenttweaker.empoweredrestoniaplate.name=§4充能红石水晶板
+item.contenttweaker.empowereddiamatineplate.name=§9充能钻石水晶板
+item.contenttweaker.empoweredemeradicplate.name=§2充能绿宝石水晶板
+item.contenttweaker.empoweredvoidplate.name=§8充能煤晶板
+item.contenttweaker.empoweredpalisplate.name=§1充能青金石水晶板
 
-item.contenttweaker.rawStainlessSteel.name=Unprocessed Stainless Steel Mixture
+item.contenttweaker.rawStainlessSteel.name=未处理的粗制不锈钢混合物
 
-item.contenttweaker.skystoneboule.name=Sky Stone Doped Boule
+item.contenttweaker.skystoneboule.name=陨石掺杂的单晶硅
 
-item.contenttweaker.thermalinsulatordust.name=Thermal Insulator Dust
+item.contenttweaker.thermalinsulatordust.name=隔热粉尘
 
-item.contenttweaker.sooty_energetic_compound.name=Sooty Energetic Compound §e(Charged)§f
-item.contenttweaker.sooty_energetic_compound_1.name=Sooty Energetic Compound §e(Uncharged)§f
+item.contenttweaker.sooty_energetic_compound.name=烟煤能量化合物§e（已充能）§f
+item.contenttweaker.sooty_energetic_compound_1.name=烟煤能量化合物§e（未充能）§f
 
-item.contenttweaker.glod_crystal.name=§6Glod Crystal
-item.contenttweaker.empowered_glod_crystal.name=§6Empowered Glod Crystal
-tile.contenttweaker.glod_crystal_block.name=§6Glod Crystal Block
-tile.contenttweaker.empowered_glod_crystal_block.name=§6Empowered Glod Crystal Block
+item.contenttweaker.glod_crystal.name=§6金晶
+item.contenttweaker.empowered_glod_crystal.name=§6充能金晶
+tile.contenttweaker.glod_crystal_block.name=§6金晶块
+tile.contenttweaker.empowered_glod_crystal_block.name=§6充能金晶块
 
-item.contenttweaker.endor_crystal.name=§3Endor Crystal
-item.contenttweaker.empowered_endor_crystal.name=§3Empowered Endor Crystal
-tile.contenttweaker.endor_crystal_block.name=§3Endor Crystal Block
-tile.contenttweaker.empowered_endor_crystal_block.name=§3Empowered Endor Crystal Block
+item.contenttweaker.endor_crystal.name=§3末影水晶
+item.contenttweaker.empowered_endor_crystal.name=§3充能末影水晶
+tile.contenttweaker.endor_crystal_block.name=§3末影水晶块
+tile.contenttweaker.empowered_endor_crystal_block.name=§3充能末影水晶块
 
-item.contenttweaker.heart_of_the_woods.name=Heart of the Woods
-item.contenttweaker.heart_of_the_magical_woods.name=Heart of the Magical Woods
+item.contenttweaker.heart_of_the_woods.name=巨树之心
+item.contenttweaker.heart_of_the_magical_woods.name=魔法木之心
 
-item.contenttweaker.overworldessencel.name=Overworldian Artifact
-item.contenttweaker.overworldessencer.name=Strange Artifact
+item.contenttweaker.overworldessencel.name=主世界宝晶
+item.contenttweaker.overworldessencer.name=奇异宝晶
 
-item.contenttweaker.taintedsoildust.name=Tainted Soil Dust
+item.contenttweaker.taintedsoildust.name=腐沙粉
 
-item.contenttweaker.endermansheart.name=§5Enderman's Heart
+item.contenttweaker.endermansheart.name=§5末影人之心
 
-item.contenttweaker.ink_dropplet.name=Ink Dropplet
+item.contenttweaker.ink_dropplet.name=滴墨
 
-item.contenttweaker.unfiredporcelainbrick.name=Unfired Porcelain Brick
+item.contenttweaker.unfiredporcelainbrick.name=未烧制的瓷砖
 
-item.contenttweaker.searedplate.name=Seared Plate
+item.contenttweaker.searedplate.name=焦黑石头板
 
-item.contenttweaker.hot_iron_ingot.name=Hot Iron Ingot
+item.contenttweaker.hot_iron_ingot.name=热铁锭
 
-item.contenttweaker.saltedhide.name=Salted Hide
+item.contenttweaker.saltedhide.name=盐鞣皮革
 
-item.contenttweaker.blank_upgrade_module.name=Blank Upgrade Module
+item.contenttweaker.blank_upgrade_module.name=空白升级模块
 
-item.contenttweaker.chip_composite.name=Chip Composite
+item.contenttweaker.chip_composite.name=芯片复合材料
 
-tile.contenttweaker.modular_casing.name=Modular Casing
+tile.contenttweaker.modular_casing.name=模块化外壳
 
-tile.contenttweaker.vanadiumsteel_casing.name=Vanadiumsteel Casing
+tile.contenttweaker.vanadiumsteel_casing.name=钒钢外壳
 
-item.contenttweaker.gemmenril.name=Menril Crystal
+item.contenttweaker.gemmenril.name=门瑞欧水晶
 
-item.contenttweaker.soot_covered_redstone.name=Soot Covered Redstone
+item.contenttweaker.soot_covered_redstone.name=烟尘覆盖的红石
 
-item.contenttweaker.twilight_crystal.name=§aTwilight Crystal§f
+item.contenttweaker.twilight_crystal.name=§a暮色水晶§f
 
-item.contenttweaker.alchemical_nautilus.name=Alchemical Nautilus Shell
+item.contenttweaker.alchemical_nautilus.name=炼金鹦鹉螺壳
 
-item.contenttweaker.demonlord.name=Demonlord Ingot
-tile.contenttweaker.demonlord_block.name=Demonlord Block
+item.contenttweaker.demonlord.name=恶魔君主锭
+tile.contenttweaker.demonlord_block.name=恶魔君主块
 
 item.contenttweaker.diabolic_carbide.name=Diabolic Carbide Ingot
 tile.contenttweaker.diabolic_carbide_block.name=Diabolic Carbide Block
@@ -140,34 +140,34 @@ tile.contenttweaker.diabolic_carbide_block.name=Diabolic Carbide Block
 item.contenttweaker.osglolapis.name=Osglolapis
 tile.contenttweaker.osglolapis_block.name=Osglolapis Block
 
-item.contenttweaker.mirionplate.name=Mirion Plate
-item.contenttweaker.miriongear.name=Mirion Gear
+item.contenttweaker.mirionplate.name=Mirion 板
+item.contenttweaker.miriongear.name=Mirion 齿轮
 
-item.contenttweaker.alumiteplate.name=Alumite Plate
-item.contenttweaker.alumitegear.name=Alumite Gear
+item.contenttweaker.alumiteplate.name=Alumite 板
+item.contenttweaker.alumitegear.name=Alumite 齿轮
 
-item.contenttweaker.osgloglasplate.name=Osgloglas Plate
-item.contenttweaker.osgloglasgear.name=Osgloglas Gear
+item.contenttweaker.osgloglasplate.name=Osgloglas 板
+item.contenttweaker.osgloglasgear.name=Osgloglas 齿轮
 
-item.contenttweaker.knightmetalplate.name=Knightmetal Plate
-item.contenttweaker.knightmetalgear.name=Knightmetal Gear
-item.contenttweaker.fieryplate.name=Fiery Plate
-item.contenttweaker.fierygear.name=Fiery Gear
-item.contenttweaker.ironwoodplate.name=Ironwood Plate
-item.contenttweaker.ironwoodgear.name=Ironwood Gear
+item.contenttweaker.knightmetalplate.name=Knightmetal 板
+item.contenttweaker.knightmetalgear.name=Knightmetal 齿轮
+item.contenttweaker.fieryplate.name=Fiery 板
+item.contenttweaker.fierygear.name=Fiery 齿轮
+item.contenttweaker.ironwoodplate.name=Ironwood 板
+item.contenttweaker.ironwoodgear.name=Ironwood 齿轮
 
-item.contenttweaker.energeticsilverplate.name=Energetic Silver Plate
-item.contenttweaker.energeticsilvergear.name=Energetic Silver Gear
+item.contenttweaker.energeticsilverplate.name=Energetic Silver 板
+item.contenttweaker.energeticsilvergear.name=Energetic Silver 齿轮
 
-item.contenttweaker.melodicalloyplate.name=Melodic Alloy Plate
-item.contenttweaker.melodicalloygear.name=Melodic Alloy Gear
+item.contenttweaker.melodicalloyplate.name=Melodic Alloy 板
+item.contenttweaker.melodicalloygear.name=Melodic Alloy 齿轮
 
 item.contenttweaker.imp_leather_scrap.name=Imp Leather Scrap
 item.contenttweaker.buffalo_leather_scrap.name= Buffalo Leather Scrap
 item.contenttweaker.industrial_leather.name=Industrial Leather
 
-item.contenttweaker.darksoulariumplate.name=Dark Soularium Plate
-item.contenttweaker.darksoulariumgear.name=Dark Soularium Gear
+item.contenttweaker.darksoulariumplate.name=Dark Soularium 板
+item.contenttweaker.darksoulariumgear.name=Dark Soularium 齿轮
 
 tile.contenttweaker.hyper_diamond_block.name=Hyper Diamond Block
 
@@ -187,23 +187,23 @@ item.contenttweaker.lich_bones.name=Lich Bones
 item.contenttweaker.rainbow_fabric.name=Rainbow Fabric
 
 
-item.contenttweaker.lavender_quartz_plate.name=Lavender Quartz Plate
-item.contenttweaker.lavender_quartz_gear.name=Lavender Quartz Gear
+item.contenttweaker.lavender_quartz_plate.name=Lavender Quartz 板
+item.contenttweaker.lavender_quartz_gear.name=Lavender Quartz 齿轮
 
-item.contenttweaker.elven_quartz_plate.name=Elven Quartz Plate
-item.contenttweaker.elven_quartz_gear.name=Elven Quartz Gear
+item.contenttweaker.elven_quartz_plate.name=Elven Quartz 板
+item.contenttweaker.elven_quartz_gear.name=Elven Quartz 齿轮
 
-item.contenttweaker.red_quartz_plate.name=Red Quartz Plate
-item.contenttweaker.red_quartz_gear.name=Red Quartz Gear
+item.contenttweaker.red_quartz_plate.name=Red Quartz 板
+item.contenttweaker.red_quartz_gear.name=Red Quartz 齿轮
 
-item.contenttweaker.blaze_quartz_plate.name=Blaze Quartz Plate
-item.contenttweaker.blaze_quartz_gear.name=Blaze Quartz Gear
+item.contenttweaker.blaze_quartz_plate.name=Blaze Quartz 板
+item.contenttweaker.blaze_quartz_gear.name=Blaze Quartz 齿轮
 
-item.contenttweaker.mana_quartz_plate.name=Mana Quartz Plate
-item.contenttweaker.mana_quartz_gear.name=Mana Quartz Gear
+item.contenttweaker.mana_quartz_plate.name=Mana Quartz 板
+item.contenttweaker.mana_quartz_gear.name=Mana Quartz 齿轮
 
-item.contenttweaker.sunny_quartz_plate.name=Sunny Quartz Plate
-item.contenttweaker.sunny_quartz_gear.name=Sunny Quartz Gear
+item.contenttweaker.sunny_quartz_plate.name=Sunny Quartz 板
+item.contenttweaker.sunny_quartz_gear.name=Sunny Quartz 齿轮
 
 item.contenttweaker.mana_silicon_boule.name=Mana-doped Monocrystalline Silicon Boule
 item.contenttweaker.mana_silicon_wafer.name=Mana-doped Silicon Wafer
@@ -356,14 +356,14 @@ item.contenttweaker.tempest_core.name=Tempest Core
 item.contenttweaker.tannin_mixture.name=Tannin Mixture
 item.contenttweaker.small_hide_salted.name=Salted Small Hide
 
-item.contenttweaker.demon_plate.name=Demonic Plate
-item.contenttweaker.demon_gear.name=Demonic Gear
+item.contenttweaker.demon_plate.name=Demonic 板
+item.contenttweaker.demon_gear.name=Demonic 齿轮
 
-item.contenttweaker.enchanted_plate.name=Enchanted Plate
-item.contenttweaker.enchanted_gear.name=Enchanted Gear
+item.contenttweaker.enchanted_plate.name=Enchanted 板
+item.contenttweaker.enchanted_gear.name=Enchanted 齿轮
 
-item.contenttweaker.evil_infused_plate.name=Evil Infused Plate
-item.contenttweaker.evil_infused_gear.name=Evil Infused Gear
+item.contenttweaker.evil_infused_plate.name=Evil Infused 板
+item.contenttweaker.evil_infused_gear.name=Evil Infused 齿轮
 
 item.contenttweaker.sanguine_pearl.name=Sanguine Pearl
 item.contenttweaker.corruptedstarmetal.name=Corrupted Starmetal
@@ -455,8 +455,8 @@ item.contenttweaker.scheduling_processor.name=Scheduling Processor
 
 item.contenttweaker.inscriber_blank_press.name=Blank Inscriber Press
 
-item.contenttweaker.crystalline_pink_slime_plate.name=Crystalline Pink Slime Plate
-item.contenttweaker.crystalline_pink_slime_gear.name=Crystalline Pink Slime Gear
+item.contenttweaker.crystalline_pink_slime_plate.name=Crystalline Pink Slime 板
+item.contenttweaker.crystalline_pink_slime_gear.name=Crystalline Pink Slime 齿轮
 
 item.contenttweaker.stone_tablet.name=Stone Tablet
 item.contenttweaker.abyssal_tablet.name=Abyssal Tablet
