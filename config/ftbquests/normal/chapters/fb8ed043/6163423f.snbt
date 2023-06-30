@@ -19,7 +19,7 @@
 		}
 	},
 	x: 13.0d,
-	y: -2.5d,
+	y: -1.5d,
 	description: "Time to make most of the Crafting Tools needed!",
 	text: [
 		"Thats right, this quest may be §ahuge§f in terms of §arequirements§f, but, §6it is important§f!",
@@ -67,27 +67,6 @@
 				Parent: {
 					id: "ore",
 					data: "gtceSaws"
-				}
-			}
-		}],
-		ignore_damage: true,
-		ignore_nbt: 1b
-	},
-	{
-		uid: "7e75ac23",
-		type: "item",
-		title: "Any Hammer",
-		items: [{
-			id: "itemfilters:filter",
-			tag: {
-				display: {
-					Name: "Any gtceHardHammers"
-				}
-			},
-			ForgeCaps: {
-				Parent: {
-					id: "ore",
-					data: "gtceHardHammers"
 				}
 			}
 		}],

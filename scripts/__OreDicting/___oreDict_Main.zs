@@ -77,18 +77,6 @@ import mods.jei.JEI as JEI;
 <ore:gearPalisEmpowered>.add(<contenttweaker:empoweredpalisgear>);
 <ore:platePalisEmpowered>.add(<contenttweaker:empoweredpalisplate>);
 
-//Mirion
-<ore:gearMirion>.add(<contenttweaker:miriongear>);
-<ore:plateMirion>.add(<contenttweaker:mirionplate>);
-
-//Alumite
-<ore:gearAlumite>.add(<contenttweaker:alumitegear>);
-<ore:plateAlumite>.add(<contenttweaker:alumiteplate>);
-
-//Osgloglas
-<ore:gearOsgloglas>.add(<contenttweaker:osgloglasgear>);
-<ore:plateOsgloglas>.add(<contenttweaker:osgloglasplate>);
-
 //Fiery
 <ore:gearFiery>.add(<contenttweaker:fierygear>);
 <ore:plateFiery>.add(<contenttweaker:fieryplate>);
@@ -220,6 +208,13 @@ import mods.jei.JEI as JEI;
 
 # NuclearCraft's HSLA Compat
 <ore:ingotHSLASteel>.add(<ore:ingotHslaSteel>.firstItem);
+
+# Adding Extra OreDicts to GT Salt
+<ore:itemSalt>.add(<gregtech:meta_dust:312>);
+<ore:foodSalt>.add(<gregtech:meta_dust:312>);
+
+#Adding Extra OreDicts to NC's Marshmallow
+<ore:foodMarshmellows>.add(<nuclearcraft:marshmallow>);
 
 // Adding OreDicts for Overloaded
 
@@ -432,9 +427,28 @@ import mods.jei.JEI as JEI;
 <ore:compressed15xEndstone>.add(<overloaded:compressed_endstone:14>);
 <ore:compressed16xEndstone>.add(<overloaded:compressed_endstone:15>);
 
+# Compressed Tainted Soil ==========================================================================
+
+<ore:compressed1xTaintedSoil>.add(<overloaded:compressed_tainted_soil>);
+<ore:compressed2xTaintedSoil>.add(<overloaded:compressed_tainted_soil:1>);
+<ore:compressed3xTaintedSoil>.add(<overloaded:compressed_tainted_soil:2>);
+<ore:compressed4xTaintedSoil>.add(<overloaded:compressed_tainted_soil:3>);
+<ore:compressed5xTaintedSoil>.add(<overloaded:compressed_tainted_soil:4>);
+<ore:compressed6xTaintedSoil>.add(<overloaded:compressed_tainted_soil:5>);
+<ore:compressed7xTaintedSoil>.add(<overloaded:compressed_tainted_soil:6>);
+<ore:compressed8xTaintedSoil>.add(<overloaded:compressed_tainted_soil:7>);
+<ore:compressed9xTaintedSoil>.add(<overloaded:compressed_tainted_soil:8>);
+<ore:compressed10xTaintedSoil>.add(<overloaded:compressed_tainted_soil:9>);
+<ore:compressed11xTaintedSoil>.add(<overloaded:compressed_tainted_soil:10>);
+<ore:compressed12xTaintedSoil>.add(<overloaded:compressed_tainted_soil:11>);
+<ore:compressed13xTaintedSoil>.add(<overloaded:compressed_tainted_soil:12>);
+<ore:compressed14xTaintedSoil>.add(<overloaded:compressed_tainted_soil:13>);
+<ore:compressed15xTaintedSoil>.add(<overloaded:compressed_tainted_soil:14>);
+<ore:compressed16xTaintedSoil>.add(<overloaded:compressed_tainted_soil:15>);
+
 // ======================================================================================================================================
 
-static mods as string[] = ["contenttweaker", "astraladditions", "astralsorcery", "gregtech", "devtech", "minecraft", "thermalfoundation", "enderio", "tconstruct", "tcomplement", "botania", "mekanism", "magneticraft", "embers", "thaumcraft", "abyssalcraft", "bloodmagic", "projectred-core", "actuallyadditions", "forestry", "careebees", "biomesoplenty", "libvulpes"];
+static mods as string[] = ["contenttweaker", "gregtech", "astralsorcery", "devtech", "minecraft", "thermalfoundation", "enderio", "tconstruct", "tcomplement", "botania", "mekanism", "magneticraft", "embers", "thaumcraft", "abyssalcraft", "bloodmagic", "projectred-core", "actuallyadditions", "forestry", "careebees", "biomesoplenty", "libvulpes"];
 static size as int = mods.length - 1;
 
 function unify_oredicts (oredict as [IOreDictEntry]) {

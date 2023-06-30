@@ -7,6 +7,8 @@ import mods.tconstruct.Melting as Melting;
 import mods.artisanworktables.builder.RecipeBuilder;
 import mods.enderio.AlloySmelter as AlloySmelter;
 
+import mods.jei.JEI as JEI;
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //			         																														 //
 //			Tinker's Construct Script                                                                                                        //
@@ -44,6 +46,46 @@ RecipeBuilder.get("blacksmith")
   .addOutput(<tconstruct:materials:14>)
   .create();
 
+# [Iron Toolkit] from [Block of Pigiron][+1]
+recipes.removeByRecipeName("tinkersaddons:iron_toolkit");
+craft.make(<tinkersaddons:modifier_item:1>, ["pretty",
+  "     ",
+  "□ ■ □",
+  "□ □ □"], {
+  "□": <ore:heavyPlateIron>, # Heavy Iron Plate
+  "■": <ore:blockPigiron>,   # Block of Pigiron
+});
+
+# [Gold Toolkit] from [Block of Rose Gold][+1]
+recipes.removeByRecipeName("tinkersaddons:gold_toolkit");
+craft.make(<tinkersaddons:modifier_item:2>, ["pretty",
+  "     ",
+  "□ ■ □",
+  "□ □ □"], {
+  "□": <ore:heavyPlateArdite>, # Heavy Ardite Plate
+  "■": <ore:blockRoseGold>,    # Block of Rose Gold
+});
+
+# [Diamond Toolkit] from [Block of Mana Diamond][+1]
+recipes.removeByRecipeName("tinkersaddons:diamond_toolkit");
+craft.make(<tinkersaddons:modifier_item:3>, ["pretty",
+  "     ",
+  "□ ■ □",
+  "□ □ □"], {
+  "□": <ore:heavyPlateMenril>, # Heavy Menril Plate
+  "■": <botania:storage:3>,    # Block of Mana Diamond
+});
+
+# [Ender Toolkit] from [Empowered Endor Crystal Block][+1]
+recipes.removeByRecipeName("tinkersaddons:ender_toolkit");
+craft.make(<tinkersaddons:modifier_item:4>, ["pretty",
+  "     ",
+  "□ * □",
+  "□ □ □"], {
+  "□": <ore:heavyPlateCobaltSteel>,      # Heavy Cobalt Steel Plate
+  "*": <ore:empoweredBlockEndorCrystal>, # Empowered Endor Crystal Block
+});
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //			         																														 //
 //			Tinker's Construct Smeltery                                                                                                      //
@@ -52,7 +94,7 @@ RecipeBuilder.get("blacksmith")
 
 // Smeltery Controller
 recipes.remove(<tconstruct:smeltery_controller:0>);
-recipes.addShaped(<tconstruct:smeltery_controller:0> * 1, [[<contenttweaker:searedplate>, <contenttweaker:searedplate>, <contenttweaker:searedplate>], [<contenttweaker:searedplate>, <pyrotech:cog_gold>, <contenttweaker:searedplate>],[<contenttweaker:searedplate>, <contenttweaker:searedplate>, <contenttweaker:searedplate>]]);
+recipes.addShaped(<tconstruct:smeltery_controller:0> * 1, [[<contenttweaker:searedplate>, <contenttweaker:searedplate>, <contenttweaker:searedplate>], [<contenttweaker:searedplate>, <ore:gearBronze>, <contenttweaker:searedplate>],[<contenttweaker:searedplate>, <contenttweaker:searedplate>, <contenttweaker:searedplate>]]);
 
 // Seared Tank
 recipes.remove(<tconstruct:seared_tank:0>);
@@ -89,7 +131,7 @@ mixer.recipeBuilder()
 
 //Scorched Block
 solidifier.recipeBuilder()
-    .fluidInputs(<liquid:scorched> * 200)
+    .fluidInputs(<liquid:scorched> * 400)
     .notConsumable(<gregtech:meta_item_1:18>)
     .outputs(<tcomplement:scorched_block>)
     .duration(720)
@@ -150,6 +192,23 @@ recipes.addShaped(<tcomplement:high_oven_io> * 2, [[<ore:plateScorched>, null, <
 recipes.remove(<tcomplement:scorched_faucet>);
 recipes.addShaped(<tcomplement:scorched_faucet> * 2, [[null, null, null], [<ore:plateScorched>, null, <ore:plateScorched>],[null, <ore:plateScorched>, null]]);
 
+var scorched as IItemStack[] = [
+<tcomplement:scorched_block>,
+<tcomplement:scorched_block:1>,
+<tcomplement:scorched_block:2>,
+<tcomplement:scorched_block:3>,
+<tcomplement:scorched_block:4>,
+<tcomplement:scorched_block:5>,
+<tcomplement:scorched_block:6>,
+<tcomplement:scorched_block:7>,
+<tcomplement:scorched_block:8>,
+<tcomplement:scorched_block:9>,
+<tcomplement:scorched_block:10>,
+<tcomplement:scorched_block:11>
+];
+for i in scorched {
+mods.chisel.Carving.addVariation("scorched", i);
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //			         																														 //
@@ -378,4 +437,85 @@ craft.make(<tcomplement:melter:8>, ["pretty",
   "▬": <ore:ingotBrickSeared>, # Seared Brick
   "S": <pyrotech:stone_kiln>,  # Stone Kiln
 });
+
+# [Tool Forge] and [Armor Forge] =============================================================================================
+
+<tconstruct:toolforge>.addTooltip(format.white("Can Only be made with ") + format.green("Iron Blocks") + format.white("."));
+recipes.remove(<tconstruct:toolforge>);
+RecipeBuilder.get("blacksmith")
+  .setShaped([
+    [<tconstruct:seared_slab>, <contenttweaker:searedplate>, <tconstruct:seared_slab>],
+    [<ore:blockIron>, <tconstruct:tooltables:3>, <ore:blockIron>],
+    [<ore:blockIron>, null, <ore:blockIron>]])
+  .setFluid(<liquid:water> * 500)
+  .addTool(<ore:gtceHardHammers>, 20)
+  .addOutput(<tconstruct:toolforge>.withTag({textureBlock: {id: "tconevo:metal_block", Count: 1, Damage: 0 as short}}))
+.create();
+RecipeBuilder.get("blacksmith")
+  .setShaped([
+    [<tconstruct:seared_slab>, <contenttweaker:searedplate>, <tconstruct:seared_slab>],
+    [<ore:blockIron>, <tconstruct:tooltables:3>, <ore:blockIron>],
+    [<ore:blockIron>, null, <ore:blockIron>]])
+  .setFluid(<liquid:water> * 500)
+  .addTool(<ore:gtceHardHammers>, 20)
+  .addOutput(<tconstruct:toolforge>)
+.create();
+
+<conarm:armorforge>.addTooltip(format.white("Can Only be made with ") + format.green("Iron Blocks") + format.white("."));
+recipes.remove(<conarm:armorforge>);
+RecipeBuilder.get("blacksmith")
+  .setShaped([
+    [<tconstruct:seared_slab>, <contenttweaker:searedplate>, <tconstruct:seared_slab>],
+    [<ore:blockIron>, <conarm:armorstation>, <ore:blockIron>],
+    [<ore:blockIron>, null, <ore:blockIron>]])
+  .setFluid(<liquid:water> * 500)
+  .addTool(<ore:gtceHardHammers>, 20)
+  .addOutput(<conarm:armorforge>.withTag({textureBlock: {id: "tconevo:metal_block", Count: 1, Damage: 0 as short}}))
+.create();
+RecipeBuilder.get("blacksmith")
+  .setShaped([
+    [<tconstruct:seared_slab>, <contenttweaker:searedplate>, <tconstruct:seared_slab>],
+    [<ore:blockIron>, <conarm:armorstation>, <ore:blockIron>],
+    [<ore:blockIron>, null, <ore:blockIron>]])
+  .setFluid(<liquid:water> * 500)
+  .addTool(<ore:gtceHardHammers>, 20)
+  .addOutput(<conarm:armorforge>)
+.create();
+
+// ============================================================================================================================
+
+# Hiding Tinker's Tables and only showing the correct ones.
+
+//Stencil Table
+<tconstruct:tooltables:1>.addTooltip(format.white("Can be made with almost ") + format.green("Any plankWood") + format.white("."));
+recipes.remove(<tconstruct:tooltables:1>);
+RecipeBuilder.get("basic")
+  .setShaped([
+    [<gregtech:meta_item_1:347>, <ore:pattern>, <gregtech:meta_item_1:347>],
+    [<ore:plankWood>, null, <ore:plankWood>],
+    [<ore:plankWood>, null, <ore:plankWood>]])
+  .addTool(<ore:gtceSaws>, 10)
+  .addOutput(<tconstruct:tooltables:1>.withTag({textureBlock: {id: "minecraft:planks", Count: 1, Damage: 0 as short}}))
+.create();
+
+//Part Builder
+<tconstruct:tooltables:2>.addTooltip(format.white("Can be made with almost ") + format.green("Any logWood") + format.white("."));
+recipes.remove(<tconstruct:tooltables:2>);
+RecipeBuilder.get("basic")
+  .setShaped([
+    [<gregtech:meta_item_1:347>, <ore:pattern>, <gregtech:meta_item_1:347>],
+    [<ore:logWood>, null, <ore:logWood>],
+    [<ore:logWood>, null, <ore:logWood>]])
+  .addTool(<ore:gtceSaws>, 10)
+  .addOutput(<tconstruct:tooltables:2>.withTag({textureBlock: {id: "minecraft:log", Count: 1, Damage: 0 as short}}))
+.create();
+
+//Stone Dust -> Seared Ingot
+alloy.recipeBuilder()
+    .inputs(<ore:dustStone>)
+    .notConsumable(<gregtech:meta_item_1:16>)
+    .outputs(<ore:ingotBrickSeared>.firstItem)
+    .duration(200)
+    .EUt(2)
+.buildAndRegister();
 

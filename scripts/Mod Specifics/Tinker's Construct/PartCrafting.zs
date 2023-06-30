@@ -32,8 +32,8 @@ var ToolMaterialsThatCanBeCasted as IItemStack[string] = {
 	"alumite" : <ore:ingotAlumite>.firstItem,
 	"tin" : <ore:ingotTin>.firstItem,
 
-	//"conductive_iron" : <ore:ingotConductiveIron>.firstItem,		
-	//"construction_alloy" : <ore:ingotConstructionAlloy>.firstItem,
+	"conductive_iron" : <ore:ingotConductiveIron>.firstItem,		
+	"construction_alloy" : <ore:ingotConstructionAlloy>.firstItem,
 
 };
 
@@ -53,16 +53,17 @@ var TinkerPartsThatCanBeCasted as IData[][IItemStack] = {
 	<tconstruct:bow_limb> : [3, "tconstruct:bow_limb"],
 	<tconstruct:arrow_head> : [2, "tconstruct:arrow_head"],
     <tconstruct:knife_blade> : [1, "tconstruct:knife_blade"],
-	<tconstruct:cross_guard> : [1, "tconstruct:cross_guard"]
+	<tconstruct:cross_guard> : [1, "tconstruct:cross_guard"],
+	<tcomplement:sledge_head> : [3, "tcomplement:sledge_head"]
 };
 
 for mat, ingot in ToolMaterialsThatCanBeCasted {
 	for part, info in TinkerPartsThatCanBeCasted {
-			extruder.recipeBuilder()
+			<recipemap:extruder>.recipeBuilder()
 				.inputs(ingot * info[0])
 				.notConsumable(<tconstruct:cast>.withTag({PartType: info[1]}))
 				.outputs(part.withTag({Material: mat}))
-				.duration(300* info[0])
+				.duration(300 * info[0])
 				.EUt(32)
 			.buildAndRegister();
 	}
@@ -173,7 +174,7 @@ var ToolMaterials as IItemStack[string] = {
 	"livingwood": <botania:livingwood>,
 	"livingrock": <botania:livingrock>,
 	"dreamwood": <botania:dreamwood>,
-	"mirion": <plustic:mirioningot>,
+	"mirion": <ore:ingotMirion>.firstItem,
 
 	"xu_magical_wood": <extrautils2:decorativesolidwood:1>,
 	"xu_demonic_metal": <extrautils2:ingredients:11>,
@@ -190,9 +191,6 @@ var ToolMaterials as IItemStack[string] = {
 	"thaumium": <ore:ingotThaumium>.firstItem,
 	"void_metal": <ore:ingotVoid>.firstItem,
 
-	"aquamarine": <ore:gemAquamarine>.firstItem,
-	"starmetal": <ore:ingotAstralStarmetal>.firstItem,
-
 	"primal_metal": <ore:ingotPrimordial>.firstItem,
 	"sentient_metal": <ore:ingotSentientMetal>.firstItem,
 	"bound_metal": <ore:ingotBoundMetal>.firstItem,
@@ -206,14 +204,14 @@ var ToolMaterials as IItemStack[string] = {
 	"refined_coralium" : <ore:ingotLiquifiedCoralium>.firstItem,
 	"dreadium" : <ore:ingotDreadium>.firstItem,
 
-	//"energetic_alloy" : <ore:ingotEnergeticAlloy>.firstItem,
-	//"vibrant_alloy" : <ore:ingotVibrantAlloy>.firstItem,
-	//"redstone_alloy" : <ore:ingotRedstoneAlloy>.firstItem,
-	//"pulsating_iron" : <ore:ingotPulsatingIron>.firstItem,			
-	//"dark_steel" : <ore:ingotDarkSteel>.firstItem,
-	//"soularium" : <ore:ingotSoularium>.firstItem,
-	//"end_steel" : <ore:ingotEndSteel>.firstItem,
-	//"electrical_steel" : <ore:ingotElectricalSteel>.firstItem
+	"energetic_alloy" : <ore:ingotEnergeticAlloy>.firstItem,
+	"vibrant_alloy" : <ore:ingotVibrantAlloy>.firstItem,
+	"redstone_alloy" : <ore:ingotRedstoneAlloy>.firstItem,
+	"pulsating_iron" : <ore:ingotPulsatingIron>.firstItem,			
+	"dark_steel" : <ore:ingotDarkSteel>.firstItem,
+	"soularium" : <ore:ingotSoularium>.firstItem,
+	"end_steel" : <ore:ingotEndSteel>.firstItem,
+	"electrical_steel" : <ore:ingotElectricalSteel>.firstItem,
 
 	"neutronium" : <ore:ingotNeutronium>.firstItem,
 	"crystal_matrix" : <ore:ingotCrystalMatrix>.firstItem,
@@ -253,17 +251,18 @@ var TinkerParts as IData[][IItemStack] = {
 	<tconstruct:bow_limb> : [3, "tconstruct:bow_limb"],
 	<tconstruct:arrow_head> : [2, "tconstruct:arrow_head"],
     <tconstruct:knife_blade> : [1, "tconstruct:knife_blade"],
-	<tconstruct:cross_guard> : [1, "tconstruct:cross_guard"]
+	<tconstruct:cross_guard> : [1, "tconstruct:cross_guard"],
+	<tcomplement:sledge_head> : [3, "tcomplement:sledge_head"]
 };
 
 for mat, ingot in ToolMaterials {
 	for part, info in TinkerParts {
 		mods.tconstruct.Casting.removeTableRecipe(part.withTag({Material: mat}));
-			extruder.recipeBuilder()
+			<recipemap:extruder>.recipeBuilder()
 				.inputs(ingot * info[0])
 				.notConsumable(<tconstruct:cast>.withTag({PartType: info[1]}))
 				.outputs(part.withTag({Material: mat}))
-				.duration(300* info[0])
+				.duration(300 * info[0])
 				.EUt(32)
 			.buildAndRegister();
 	}
@@ -391,7 +390,7 @@ var ToolMaterialsII as IItemStack[string] = {
 	"livingwood": <botania:livingwood>,
 	"livingrock": <botania:livingrock>,
 	"dreamwood": <botania:dreamwood>,
-	"mirion": <plustic:mirioningot>,
+	"mirion": <ore:ingotMirion>.firstItem,
 
 	"xu_magical_wood": <extrautils2:decorativesolidwood:1>,
 	"xu_demonic_metal": <extrautils2:ingredients:11>,
@@ -408,9 +407,6 @@ var ToolMaterialsII as IItemStack[string] = {
 	"thaumium": <ore:ingotThaumium>.firstItem,
 	"void_metal": <ore:ingotVoid>.firstItem,
 
-	"aquamarine": <ore:gemAquamarine>.firstItem,
-	"starmetal": <ore:ingotAstralStarmetal>.firstItem,
-
 	"primal_metal": <ore:ingotPrimordial>.firstItem,
 	"sentient_metal": <ore:ingotSentientMetal>.firstItem,
 	"bound_metal": <ore:ingotBoundMetal>.firstItem,
@@ -424,16 +420,16 @@ var ToolMaterialsII as IItemStack[string] = {
 	"refined_coralium" : <ore:ingotLiquifiedCoralium>.firstItem,
 	"dreadium" : <ore:ingotDreadium>.firstItem,
 
-	//"energetic_alloy" : <ore:ingotEnergeticAlloy>.firstItem,
-	//"vibrant_alloy" : <ore:ingotVibrantAlloy>.firstItem,
-	//"redstone_alloy" : <ore:ingotRedstoneAlloy>.firstItem,
-	//"conductive_iron" : <ore:ingotConductiveIron>.firstItem,
-	//"pulsating_iron" : <ore:ingotPulsatingIron>.firstItem,			
-	//"dark_steel" : <ore:ingotDarkSteel>.firstItem,
-	//"soularium" : <ore:ingotSoularium>.firstItem,
-	//"end_steel" : <ore:ingotEndSteel>.firstItem,
-	//"construction_alloy" : <ore:ingotConstructionAlloy>.firstItem,
-	//"electrical_steel" : <ore:ingotElectricalSteel>.firstItem	
+	"energetic_alloy" : <ore:ingotEnergeticAlloy>.firstItem,
+	"vibrant_alloy" : <ore:ingotVibrantAlloy>.firstItem,
+	"redstone_alloy" : <ore:ingotRedstoneAlloy>.firstItem,
+	"conductive_iron" : <ore:ingotConductiveIron>.firstItem,
+	"pulsating_iron" : <ore:ingotPulsatingIron>.firstItem,			
+	"dark_steel" : <ore:ingotDarkSteel>.firstItem,
+	"soularium" : <ore:ingotSoularium>.firstItem,
+	"end_steel" : <ore:ingotEndSteel>.firstItem,
+	"construction_alloy" : <ore:ingotConstructionAlloy>.firstItem,
+	"electrical_steel" : <ore:ingotElectricalSteel>.firstItem,	
 
 	"neutronium" : <ore:ingotNeutronium>.firstItem,
 	"crystal_matrix" : <ore:ingotCrystalMatrix>.firstItem,
@@ -471,11 +467,11 @@ var TinkerPartsII as IData[][IItemStack] = {
 for mat, ingot in ToolMaterialsII {
 	for part, info in TinkerPartsII {
 		mods.tconstruct.Casting.removeTableRecipe(part.withTag({Material: mat}));
-			extruder.recipeBuilder()
+			<recipemap:extruder>.recipeBuilder()
 				.inputs(ingot * info[0])
 				.notConsumable(<tconstruct:cast>.withTag({PartType: info[1]}))
 				.outputs(part.withTag({Material: mat}))
-				.duration(300* info[0])
+				.duration(300 * info[0])
 				.EUt(128)
 			.buildAndRegister();
 
@@ -604,7 +600,7 @@ var ConarmMaterials as IItemStack[string] = {
 	"livingwood": <botania:livingwood>,
 	"livingrock": <botania:livingrock>,
 	"dreamwood": <botania:dreamwood>,
-	"mirion": <plustic:mirioningot>,
+	"mirion": <ore:ingotMirion>.firstItem,
 
 	"xu_magical_wood": <extrautils2:decorativesolidwood:1>,
 	"xu_demonic_metal": <extrautils2:ingredients:11>,
@@ -622,9 +618,6 @@ var ConarmMaterials as IItemStack[string] = {
 	"void_metal": <ore:ingotVoid>.firstItem,
 	"enchanted_fabric": <thaumcraft:fabric>,
 
-	"aquamarine": <ore:gemAquamarine>.firstItem,
-	"starmetal": <ore:ingotAstralStarmetal>.firstItem,
-
 	"primal_metal": <ore:ingotPrimordial>.firstItem,
 	"sentient_metal": <ore:ingotSentientMetal>.firstItem,
 	"bound_metal": <ore:ingotBoundMetal>.firstItem,
@@ -638,16 +631,16 @@ var ConarmMaterials as IItemStack[string] = {
 	"refined_coralium" : <ore:ingotLiquifiedCoralium>.firstItem,
 	"dreadium" : <ore:ingotDreadium>.firstItem,
 
-	//"energetic_alloy" : <ore:ingotEnergeticAlloy>.firstItem,
-	//"vibrant_alloy" : <ore:ingotVibrantAlloy>.firstItem,
-	//"redstone_alloy" : <ore:ingotRedstoneAlloy>.firstItem,
-	//"conductive_iron" : <ore:ingotConductiveIron>.firstItem,
-	//"pulsating_iron" : <ore:ingotPulsatingIron>.firstItem,			
-	//"dark_steel" : <ore:ingotDarkSteel>.firstItem,
-	//"soularium" : <ore:ingotSoularium>.firstItem,
-	//"end_steel" : <ore:ingotEndSteel>.firstItem,
-	//"construction_alloy" : <ore:ingotConstructionAlloy>.firstItem,
-	//"electrical_steel" : <ore:ingotElectricalSteel>.firstItem	
+	"energetic_alloy" : <ore:ingotEnergeticAlloy>.firstItem,
+	"vibrant_alloy" : <ore:ingotVibrantAlloy>.firstItem,
+	"redstone_alloy" : <ore:ingotRedstoneAlloy>.firstItem,
+	"conductive_iron" : <ore:ingotConductiveIron>.firstItem,
+	"pulsating_iron" : <ore:ingotPulsatingIron>.firstItem,			
+	"dark_steel" : <ore:ingotDarkSteel>.firstItem,
+	"soularium" : <ore:ingotSoularium>.firstItem,
+	"end_steel" : <ore:ingotEndSteel>.firstItem,
+	"construction_alloy" : <ore:ingotConstructionAlloy>.firstItem,
+	"electrical_steel" : <ore:ingotElectricalSteel>.firstItem,	
 
 	"neutronium" : <ore:ingotNeutronium>.firstItem,
 	"crystal_matrix" : <ore:ingotCrystalMatrix>.firstItem,
@@ -683,11 +676,11 @@ var ConarmParts as IData[][IItemStack] = {
 for mat, ingot in ConarmMaterials {
 	for part, info in ConarmParts {
 		mods.tconstruct.Casting.removeTableRecipe(part.withTag({Material: mat}));
-			extruder.recipeBuilder()
+			<recipemap:extruder>.recipeBuilder()
 				.inputs(ingot * info[0])
 				.notConsumable(<tconstruct:cast>.withTag({PartType: info[1]}))
 				.outputs(part.withTag({Material: mat}))
-				.duration(300* info[0])
+				.duration(300 * info[0])
 				.EUt(32)
 			.buildAndRegister();
 
@@ -746,11 +739,11 @@ var ArcaneFocusParts as IData[][IItemStack] = {
 for mat, ingot in ArcaneFocusMaterials {
 	for part, info in ArcaneFocusParts {
 		mods.tconstruct.Casting.removeTableRecipe(part.withTag({Material: mat}));
-			extruder.recipeBuilder()
+			<recipemap:extruder>.recipeBuilder()
 				.inputs(ingot * info[0])
 				.notConsumable(<tconstruct:cast>.withTag({PartType: info[1]}))
 				.outputs(part.withTag({Material: mat}))
-				.duration(300* info[0])
+				.duration(300 * info[0])
 				.EUt(512)
 			.buildAndRegister();
 	}
@@ -761,8 +754,7 @@ for mat, ingot in ArcaneFocusMaterials {
 var BatteryCellMaterials as IItemStack[string] = {
 	"stone" : <minecraft:stone>,
 	"manyullyn" : <ore:ingotManyullyn>.firstItem,
-    //"copper" : <ore:ingotCopper>.firstItem,
-	"copper" : <gregtech:meta_ingot:25>,
+    "copper" : <ore:ingotCopper>.firstItem,
 	"silver" : <ore:ingotSilver>.firstItem,
 	"blaze" : <minecraft:blaze_rod>,
 	"endrod" : <minecraft:end_rod>,
@@ -778,11 +770,11 @@ var BatteryCellParts as IData[][IItemStack] = {
 for mat, ingot in BatteryCellMaterials {
 	for part, info in BatteryCellParts {
 		mods.tconstruct.Casting.removeTableRecipe(part.withTag({Material: mat}));
-			extruder.recipeBuilder()
+			<recipemap:extruder>.recipeBuilder()
 				.inputs(ingot * info[0])
 				.notConsumable(<tconstruct:cast>.withTag({PartType: info[1]}))
 				.outputs(part.withTag({Material: mat}))
-				.duration(300* info[0])
+				.duration(300 * info[0])
 				.EUt(512)
 			.buildAndRegister();	
 	}
@@ -820,11 +812,11 @@ var ArrowShaftParts as IData[][IItemStack] = {
 
 for mat, ingot in ArrowShaftMaterials {
 	for part, info in ArrowShaftParts {
-			extruder.recipeBuilder()
+			<recipemap:extruder>.recipeBuilder()
 				.inputs(ingot * info[0])
 				.notConsumable(<tconstruct:cast>.withTag({PartType: info[1]}))
 				.outputs(part.withTag({Material: mat}))
-				.duration(300* info[0])
+				.duration(300 * info[0])
 				.EUt(128)
 			.buildAndRegister();	
 	}

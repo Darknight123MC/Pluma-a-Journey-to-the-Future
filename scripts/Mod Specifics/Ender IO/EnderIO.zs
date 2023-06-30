@@ -3,6 +3,10 @@ import crafttweaker.item.IItemStack;
 import crafttweaker.item.IIngredient;
 import mods.gregtech.recipe.RecipeMap;
 import mods.artisanworktables.builder.RecipeBuilder;
+import mods.actuallyadditions.Compost;
+import mods.tcomplement.highoven.HighOven;
+import mods.tcomplement.highoven.MixRecipeBuilder;
+import mods.inworldcrafting.FluidToItem;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //			         																														 //
@@ -37,7 +41,7 @@ AlloySmelter.addRecipe(<enderio:item_dark_steel_upgrade>, [<enderio:block_dark_i
 assembler.recipeBuilder()
     .inputs(<ore:itemSimpleMachineChassi>, <ore:dyeMachine>)
     .fluidInputs(<liquid:empoweredoil> * 250)
-    .property("circuit", 8)
+    .circuit(8)
     .outputs(<ore:itemMachineChassi>.firstItem)
     .duration(200)
     .EUt(80)
@@ -180,7 +184,7 @@ recipes.addShaped(<enderio:block_tank:1> * 1, [[<ore:plateDarkSteel>, <enderio:b
 assembler.recipeBuilder()
     .inputs(<ore:itemMachineChassi>, <ore:dyeSoulMachine>)
     .fluidInputs(<liquid:soularium> * 864)
-    .property("circuit", 8)
+    .circuit(8)
     .outputs(<ore:itemSoulMachineChassi>.firstItem)
     .duration(200)
     .EUt(260)
@@ -198,7 +202,7 @@ recipes.addShaped(<enderio:block_soul_binder> * 1, [[<ore:heavyPlateSoularium>, 
 assembler.recipeBuilder()
     .inputs(<ore:itemSoulMachineChassi>, <enderio:block_end_iron_bars>*4, <extrautils2:endershard>*8)
     .fluidInputs(<liquid:end_steel> * 576)
-    .property("circuit", 8)
+    .circuit(8)
     .outputs(<ore:itemEndSteelMachineChassi>.firstItem)
     .duration(210)
     .EUt(270)
@@ -208,7 +212,7 @@ assembler.recipeBuilder()
 assembler.recipeBuilder()
     .inputs(<ore:itemEndSteelMachineChassi>, <ore:dyeEnhancedMachine>)
     .fluidInputs(<liquid:gas_dwarf> * 250)
-    .property("circuit", 8)
+    .circuit(8)
     .outputs(<ore:itemEnhancedMachineChassi>.firstItem)
     .duration(250)
     .EUt(280)
@@ -241,12 +245,20 @@ alloy.recipeBuilder()
 .buildAndRegister();
 
 //Redstone Alloy
-alloy.recipeBuilder()
-    .inputs(<ore:dustSilicon>, <ore:ingotRedAlloy>)
-    .outputs(<ore:ingotRedstoneAlloy>.firstItem)
-    .duration(180)
-    .EUt(20)
-.buildAndRegister();
+// alloy.recipeBuilder()
+//     .inputs(<ore:dustSilicon>, <ore:ingotRedAlloy>)
+//     .outputs(<ore:ingotRedstoneAlloy>.firstItem)
+//     .duration(180)
+//     .EUt(20)
+// .buildAndRegister();
+
+var Redstone_Alloy = HighOven.newMixRecipe(<liquid:redstone_alloy> *144, <liquid:tin>*144, 5400);
+Redstone_Alloy.addOxidizer(<ore:dustRedstone>, 50);
+Redstone_Alloy.addReducer(<ore:itemInfinityGoop>, 100);
+Redstone_Alloy.addPurifier(<ore:dustSilicon>, 50);
+Redstone_Alloy.register();
+
+<ore:ingotRedstoneAlloy>.firstItem.addTooltip(format.white("Can also be made inside a ") + format.lightPurple("High Oven") + format.white("."));
 
 //Iron Alloy
 AlloySmelter.addRecipe(<ore:ingotConstructionAlloy>.firstItem*2, [<ore:ingotIron>, <ore:ingotLead>, <ore:ingotBrickNether>], 1000, 1.0);
@@ -385,17 +397,17 @@ blast_furnace.recipeBuilder()
 
 //End Steel
 blast_furnace.recipeBuilder()
-    .inputs(<ore:dustEndstone>, <ore:ingotDarkSteel>, <ore:dustSmallTungstate>)
-    .outputs(<ore:ingotEndSteel>.firstItem)
+    .inputs(<ore:dustEndstone>, <ore:ingotDarkSteel>, <ore:dustUvarovite>)
+    .outputs(<ore:ingotEndSteel>.firstItem*2)
     .property("temperature", 2700)
     .duration(400)
     .EUt(600)
 .buildAndRegister();
 
 blast_furnace.recipeBuilder()
-    .inputs(<ore:dustEndstone>, <ore:ingotDarkSteel>, <ore:dustSmallTungstate>)
+    .inputs(<ore:dustEndstone>, <ore:ingotDarkSteel>, <ore:dustUvarovite>)
     .fluidInputs(<liquid:nitrogen> * 250)
-    .outputs(<ore:ingotEndSteel>.firstItem)
+    .outputs(<ore:ingotEndSteel>.firstItem*2)
     .property("temperature", 2600)
     .duration(250)
     .EUt(512)
@@ -405,7 +417,7 @@ blast_furnace.recipeBuilder()
 recipes.remove(<enderio:item_material:14>);
 autoclave.recipeBuilder()
     .inputs(<ore:gemDiamond>)
-    .fluidInputs(<liquid:pulsating_iron> * 288)
+    .fluidInputs(<liquid:pulsating_iron> * 128)
     .outputs(<ore:itemPulsatingCrystal>.firstItem)
     .duration(250)
     .EUt(512)
@@ -415,7 +427,7 @@ autoclave.recipeBuilder()
 recipes.remove(<enderio:item_material:15>);
 autoclave.recipeBuilder()
     .inputs(<ore:gemEmerald>)
-    .fluidInputs(<liquid:vibrant_alloy> * 288)
+    .fluidInputs(<liquid:vibrant_alloy> * 128)
     .outputs(<ore:itemVibrantCrystal>.firstItem)
     .duration(250)
     .EUt(512)
@@ -458,7 +470,7 @@ forming.recipeBuilder()
 
 // Dimensional Transceiver
 recipes.remove(<enderio:block_transceiver>);
-recipes.addShaped(<enderio:block_transceiver> * 1, [[<ore:lightPlateTitanium>, <ore:skullSentientEnder>, <ore:lightPlateTitanium>], [<ore:fusedQuartz>, <ore:itemWeatherCrystal>, <ore:fusedQuartz>],[<ore:lightPlateTitanium>, <contenttweaker:integrated_botanical_processor>, <ore:lightPlateTitanium>]]);
+recipes.addShaped(<enderio:block_transceiver> * 1, [[<ore:lightPlateEnderium>, <ore:skullSentientEnder>, <ore:lightPlateEnderium>], [<ore:fusedQuartz>, <mekanism:teleportationcore>, <ore:fusedQuartz>],[<ore:lightPlateEnderium>, <ore:itemWeatherCrystal>, <ore:lightPlateEnderium>]]);
 
 //Magnet
 recipes.remove(<enderio:item_magnet>);
@@ -487,10 +499,14 @@ recipes.remove(<enderio:item_material:22>);
 mixer.recipeBuilder()
     .inputs(<ore:dustClay>*2, <ore:gravel>*2, <ore:dustQuartzSand>*2)
     .fluidInputs(<liquid:concrete> * 288)
-    .outputs(<enderio:item_material:22>*6)
+    .outputs(<enderio:item_material:22>*12)
     .duration(180)
     .EUt(16)
 .buildAndRegister();
+
+# Binder now needs a Composter
+furnace.remove(<enderio:item_material:4>);
+mods.actuallyadditions.Compost.addRecipe(<enderio:item_material:4>, <quark:quilted_wool:8>, <enderio:item_material:22>, <biomesoplenty:dirt:2>);
 
 // Energy Conduit (Conductive Iron)
 recipes.remove(<enderio:item_power_conduit:0>);
@@ -615,3 +631,60 @@ RecipeBuilder.get("blacksmith")
 // Powered Spawner
 recipes.remove(<enderio:block_powered_spawner>);
 recipes.addShaped(<enderio:block_powered_spawner> * 1, [[<ore:plateCrystallinePinkSlime>, <ore:itemSkull>, <ore:plateCrystallinePinkSlime>], [<tconstruct:large_plate>.withTag({Material: "meat_metal"}), <ore:itemSoulMachineChassi>, <tconstruct:large_plate>.withTag({Material: "meat_metal"})],[<ore:itemVibrantCrystal>, <ore:skullZombieController>, <ore:itemVibrantCrystal>]]);
+
+//Infinity Reagent ========================
+mods.inworldcrafting.FluidToItem.transform(<ore:itemInfinityGoop>.firstItem, <liquid:glue>, [<actuallyadditions:item_misc:11>], true);
+mods.inworldcrafting.FluidToItem.transform(<ore:itemInfinityGoop>.firstItem*8, <liquid:glue>, [<ore:gemCharcoal>.firstItem], true);
+
+mods.inworldcrafting.FluidToItem.transform(<ore:itemInfinityGoop>.firstItem, <liquid:glue>, [<actuallyadditions:item_misc:10>], true);
+mods.inworldcrafting.FluidToItem.transform(<ore:itemInfinityGoop>.firstItem*8, <liquid:glue>, [<ore:gemCoal>.firstItem], true);
+
+#Charcoal
+chemical_bath.recipeBuilder()
+    .inputs(<actuallyadditions:item_misc:11>)
+    .fluidInputs(<liquid:glue>*1000)
+    .outputs(<ore:itemInfinityGoop>.firstItem)
+    .duration(30)
+    .EUt(15)
+.buildAndRegister();
+
+chemical_bath.recipeBuilder()
+    .inputs(<ore:gemCharcoal>)
+    .fluidInputs(<liquid:glue>*1000)
+    .outputs(<ore:itemInfinityGoop>.firstItem*8)
+    .duration(60)
+    .EUt(30)
+.buildAndRegister();
+
+chemical_bath.recipeBuilder()
+    .inputs(<ore:blockCharcoal>)
+    .fluidInputs(<liquid:glue>*1000)
+    .outputs(<ore:itemInfinityGoop>.firstItem*64, <ore:itemInfinityGoop>.firstItem*8)
+    .duration(120)
+    .EUt(40)
+.buildAndRegister();
+
+#Coal
+chemical_bath.recipeBuilder()
+    .inputs(<actuallyadditions:item_misc:10>)
+    .fluidInputs(<liquid:glue>*1000)
+    .outputs(<ore:itemInfinityGoop>.firstItem)
+    .duration(30)
+    .EUt(15)
+.buildAndRegister();
+
+chemical_bath.recipeBuilder()
+    .inputs(<ore:gemCoal>)
+    .fluidInputs(<liquid:glue>*1000)
+    .outputs(<ore:itemInfinityGoop>.firstItem*8)
+    .duration(60)
+    .EUt(30)
+.buildAndRegister();
+
+chemical_bath.recipeBuilder()
+    .inputs(<ore:blockCoal>)
+    .fluidInputs(<liquid:glue>*1000)
+    .outputs(<ore:itemInfinityGoop>.firstItem*64, <ore:itemInfinityGoop>.firstItem*8)
+    .duration(120)
+    .EUt(40)
+.buildAndRegister();

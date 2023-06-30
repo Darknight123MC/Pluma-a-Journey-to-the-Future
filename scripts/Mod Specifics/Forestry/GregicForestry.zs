@@ -5,6 +5,7 @@ import crafttweaker.oredict.IOreDict;
 import crafttweaker.oredict.IOreDictEntry;
 import mods.gregtech.recipe.RecipeMap;
 import mods.forestry.Carpenter as Carpenter;
+import mods.pyrotech.Barrel as Barrel;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //			         																														 //
@@ -28,12 +29,44 @@ extractor.findRecipe(2, [<minecraft:beetroot_seeds>], [null]).remove();
 
 extractor.recipeBuilder()
     .inputs(<ore:listAllseed>)
-    .fluidOutputs(<liquid:seed.oil>*10)
+    .fluidOutputs(<liquid:seed_oil>*10)
     .duration(40)
     .EUt(4)
     .buildAndRegister();
 
 */
+<recipemap:extractor>.findRecipe(2, [<minecraft:beetroot_seeds:0>], null).remove();
+<recipemap:extractor>.findRecipe(2, [<minecraft:pumpkin_seeds:0>], null).remove();
+<recipemap:extractor>.findRecipe(2, [<natura:overworld_seeds:0>], null).remove();
+<recipemap:extractor>.findRecipe(2, [<natura:overworld_seeds:1>], null).remove();
+<recipemap:extractor>.findRecipe(2, [<mysticalworld:aubergine_seed:0>], null).remove();
+<recipemap:extractor>.findRecipe(2, [<minecraft:melon_seeds:0>], null).remove();
+<recipemap:extractor>.findRecipe(2, [<roots:terra_spores:0>], null).remove();
+<recipemap:extractor>.findRecipe(2, [<minecraft:wheat_seeds:0>], null).remove();
+<recipemap:extractor>.findRecipe(2, [<roots:wildroot:0>], null).remove();
+
+extractor.recipeBuilder()
+    .inputs(<ore:listAllseed>)
+    .fluidOutputs(<liquid:seed.oil> * 50)
+    .duration(20)
+    .EUt(2)
+.buildAndRegister();
+
+fermenter.recipeBuilder()
+    .inputs(<ore:Mulch>)
+    .fluidInputs(<liquid:seed.oil> * 10)
+    .fluidOutputs(<liquid:seed_oil> * 10)
+    .duration(80)
+    .EUt(12)
+.buildAndRegister();
+
+Barrel.addRecipe(
+  "seed.oil -> concentrated seed oil", 
+  <liquid:seed_oil>, 
+  <liquid:seed.oil>, 
+  [<ore:Mulch>],
+  12000
+);
 
 // Fruit Juice Compat =======================================================================
 
@@ -55,23 +88,23 @@ alloy.recipeBuilder()
 //Binnies Resin
 extractor.recipeBuilder()
     .inputs(<ore:logWood>)
-    .fluidOutputs([<liquid:binnie.resin> * 25])
+    .fluidOutputs([<liquid:binnie.resin> * 250])
     .duration(300)
     .EUt(32)
     .buildAndRegister();
 
 extractor.recipeBuilder()
     .inputs(<minecraft:log:1>)
-    .fluidOutputs([<liquid:binnie.resin> * 50])
+    .fluidOutputs([<liquid:binnie.resin> * 500])
     .duration(300)
     .EUt(32)
     .buildAndRegister();
 
-//Refined Canola Oil
+//Turpentine
 distillery.recipeBuilder()
-    .fluidInputs([<liquid:binnie.resin> * 5])
-    .property("circuit", 4)
-    .fluidOutputs(<liquid:binnie.turpentine> * 3)
+    .fluidInputs([<liquid:binnie.resin> * 50])
+    .circuit(4)
+    .fluidOutputs(<liquid:binnie.turpentine> * 30)
     .duration(600)
     .EUt(32)
     .buildAndRegister();
@@ -117,9 +150,9 @@ Carpenter.removeRecipe(<forestry:kit_pickaxe>);
 Carpenter.removeRecipe(<forestry:stamps:3>);
 assembler.recipeBuilder()
     .inputs(<ore:plateGold>*3,<ore:paper>*3)
-    .fluidInputs(<liquid:seed.oil> * 300)
+    .fluidInputs(<liquid:seed_oil> * 300)
     .outputs(<forestry:stamps:3> * 9)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(100)
     .EUt(12)
 .buildAndRegister();
@@ -128,9 +161,9 @@ assembler.recipeBuilder()
 Carpenter.removeRecipe(<forestry:stamps:2>);
 assembler.recipeBuilder()
     .inputs(<ore:plateTin>*3,<ore:paper>*3)
-    .fluidInputs(<liquid:seed.oil> * 300)
+    .fluidInputs(<liquid:seed_oil> * 300)
     .outputs(<forestry:stamps:2> * 9)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(100)
     .EUt(12)
 .buildAndRegister();
@@ -139,9 +172,9 @@ assembler.recipeBuilder()
 Carpenter.removeRecipe(<forestry:stamps>);
 assembler.recipeBuilder()
     .inputs(<ore:gemApatite>*3,<ore:paper>*3)
-    .fluidInputs(<liquid:seed.oil> * 300)
+    .fluidInputs(<liquid:seed_oil> * 300)
     .outputs(<forestry:stamps> * 9)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(100)
     .EUt(12)
 .buildAndRegister();
@@ -150,9 +183,9 @@ assembler.recipeBuilder()
 Carpenter.removeRecipe(<forestry:stamps:1>);
 assembler.recipeBuilder()
     .inputs(<ore:plateCopper>*3,<ore:paper>*3)
-    .fluidInputs(<liquid:seed.oil> * 300)
+    .fluidInputs(<liquid:seed_oil> * 300)
     .outputs(<forestry:stamps:1> * 9)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(100)
     .EUt(12)
 .buildAndRegister();
@@ -163,7 +196,7 @@ assembler.recipeBuilder()
     .inputs(<ore:dustWood>*6)
     .fluidInputs(<liquid:water> * 250)
     .outputs(<forestry:letters>)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(100)
     .EUt(12)
 .buildAndRegister();
@@ -174,7 +207,7 @@ assembler.recipeBuilder()
     .inputs(<forestry:miner_bag>, <forestry:crafting_material:3> * 7, <ore:plateDiamond>)
     .fluidInputs(<liquid:water> * 1000)
     .outputs(<forestry:miner_bag_t2>)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(180)
     .EUt(12)
 .buildAndRegister();
@@ -185,7 +218,7 @@ assembler.recipeBuilder()
     .inputs(<railcraft:backpack_iceman_t1>, <forestry:crafting_material:3> * 7, <ore:plateDiamond>)
     .fluidInputs(<liquid:water> * 1000)
     .outputs(<railcraft:backpack_iceman_t2>.withTag({display: {Lore: ["§7§oDesigned by Railcraft, Inc."]}}))
-    .property("circuit", 16)
+    .circuit(16)
     .duration(180)
     .EUt(12)
 .buildAndRegister();
@@ -196,7 +229,7 @@ assembler.recipeBuilder()
     .inputs(<railcraft:backpack_apothecary_t1>, <forestry:crafting_material:3> * 7, <ore:plateDiamond>)
     .fluidInputs(<liquid:water> * 1000)
     .outputs(<railcraft:backpack_apothecary_t2>.withTag({display: {Lore: ["§7§oDesigned by Railcraft, Inc."]}}))
-    .property("circuit", 16)
+    .circuit(16)
     .duration(180)
     .EUt(12)
 .buildAndRegister();
@@ -207,7 +240,7 @@ assembler.recipeBuilder()
     .inputs(<forestry:hunter_bag>, <forestry:crafting_material:3> * 7, <ore:plateDiamond>)
     .fluidInputs(<liquid:water> * 1000)
     .outputs(<forestry:hunter_bag_t2>)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(180)
     .EUt(12)
 .buildAndRegister();
@@ -218,7 +251,7 @@ assembler.recipeBuilder()
     .inputs(<forestry:adventurer_bag>, <forestry:crafting_material:3> * 7, <ore:plateDiamond>)
     .fluidInputs(<liquid:water> * 1000)
     .outputs(<forestry:adventurer_bag_t2>)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(180)
     .EUt(12)
 .buildAndRegister();
@@ -232,7 +265,7 @@ assembler.recipeBuilder()
     .inputs(<railcraft:backpack_signalman_t1>, <forestry:crafting_material:3> * 7, <ore:plateDiamond>)
     .fluidInputs(<liquid:water> * 1000)
     .outputs(<railcraft:backpack_signalman_t2>.withTag({display: {Lore: ["§7§oDesigned by Railcraft, Inc."]}}))
-    .property("circuit", 16)
+    .circuit(16)
     .duration(180)
     .EUt(12)
 .buildAndRegister();
@@ -243,7 +276,7 @@ assembler.recipeBuilder()
     .inputs(<railcraft:backpack_trackman_t1>, <forestry:crafting_material:3> * 7, <ore:plateDiamond>)
     .fluidInputs(<liquid:water> * 1000)
     .outputs(<railcraft:backpack_trackman_t2>.withTag({display: {Lore: ["§7§oDesigned by Railcraft, Inc."]}}))
-    .property("circuit", 16)
+    .circuit(16)
     .duration(180)
     .EUt(12)
 .buildAndRegister();
@@ -254,7 +287,7 @@ assembler.recipeBuilder()
     .inputs(<forestry:digger_bag>, <forestry:crafting_material:3> * 7, <ore:plateDiamond>)
     .fluidInputs(<liquid:water> * 1000)
     .outputs(<forestry:digger_bag_t2>)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(180)
     .EUt(12)
 .buildAndRegister();
@@ -265,7 +298,7 @@ assembler.recipeBuilder()
     .inputs(<forestry:builder_bag>, <forestry:crafting_material:3> * 7, <ore:plateDiamond>)
     .fluidInputs(<liquid:water> * 1000)
     .outputs(<forestry:builder_bag_t2>)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(180)
     .EUt(12)
 .buildAndRegister();
@@ -276,7 +309,7 @@ assembler.recipeBuilder()
     .inputs(<forestry:forester_bag>, <forestry:crafting_material:3> * 7, <ore:plateDiamond>)
     .fluidInputs(<liquid:water> * 1000)
     .outputs(<forestry:forester_bag_t2>)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(180)
     .EUt(12)
 .buildAndRegister();
@@ -285,7 +318,7 @@ assembler.recipeBuilder()
 Carpenter.removeRecipe(<forestry:oak_stick>);
 chemical_bath.recipeBuilder()
     .inputs(<ore:stickTreatedWood>)
-    .fluidInputs(<liquid:seed.oil> * 100)
+    .fluidInputs(<liquid:seed_oil> * 100)
     .outputs(<forestry:oak_stick>)
     .duration(200)
     .EUt(8)
@@ -317,7 +350,7 @@ assembler.recipeBuilder()
     .inputs(<ore:plankTreatedWood>*3, <ore:itemBeeswax> * 2, <ore:itemPollen>, <ore:dropRoyalJelly>)
     .fluidInputs(<liquid:for.honey> * 500)
     .outputs(<forestry:crafting_material:6>)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(180)
     .EUt(50)
 .buildAndRegister();
@@ -328,7 +361,7 @@ assembler.recipeBuilder()
     .inputs(<ore:circuitMv>, <quark:framed_glass_pane>, <ore:gemEnderEye>, <ore:plateRestoniaEmpowered>*2, <ore:plateAluminium>*4)
     .fluidInputs(<liquid:water> * 2000)
     .outputs(<genetics:geneticdatabase>)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(180)
     .EUt(100)
 .buildAndRegister();
@@ -339,7 +372,7 @@ assembler.recipeBuilder()
     .inputs(<ore:circuitMv>, <quark:framed_glass_pane>, <forestry:thermionic_tubes:9>, <contenttweaker:restoniaplate>*2, <ore:plateDoubleBrass>*4)
     .fluidInputs(<liquid:water> * 2000)
     .outputs(<extratrees:databasetree>)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(180)
     .EUt(32)
 .buildAndRegister();
@@ -350,7 +383,7 @@ assembler.recipeBuilder()
     .inputs(<ore:circuitMv>, <quark:framed_glass_pane>, <forestry:thermionic_tubes:10>, <contenttweaker:restoniaplate>*2, <ore:plateDoubleGold>*4)
     .fluidInputs(<liquid:water> * 2000)
     .outputs(<extrabees:dictionary>)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(180)
     .EUt(32)
 .buildAndRegister();
@@ -361,7 +394,7 @@ assembler.recipeBuilder()
     .inputs(<ore:itemBeeswax>*6, <ore:string>)
     .fluidInputs(<liquid:water> * 600)
     .outputs(<forestry:candle> * 24)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(80)
     .EUt(2)
 .buildAndRegister();
@@ -370,7 +403,7 @@ assembler.recipeBuilder()
     .inputs(<ore:itemBeeswax>*2, <forestry:crafting_material:2>*2)
     .fluidInputs(<liquid:water> * 200)
     .outputs(<forestry:candle> * 6)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(80)
     .EUt(2)
 .buildAndRegister();
@@ -387,7 +420,7 @@ assembler.recipeBuilder()
     .inputs(<forestry:pollen:1>*4, <ore:dropHoney>*2, <ore:gunpowder>, <forestry:can>)
     .fluidInputs(<liquid:water> * 1000)
     .outputs(<forestry:iodine_capsule>)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(180)
     .EUt(40)
 .buildAndRegister();
@@ -398,7 +431,7 @@ assembler.recipeBuilder()
     .inputs(<ore:dropRoyalJelly>*4, <ore:dropHoneydew>*2, <ore:gunpowder>, <forestry:can>)
     .fluidInputs(<liquid:water> * 1000)
     .outputs(<forestry:crafting_material:4>)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(180)
     .EUt(40)
 .buildAndRegister();
@@ -409,7 +442,7 @@ assembler.recipeBuilder()
     .inputs(<forestry:crafting_material:2>*9)
     .fluidInputs(<liquid:water> * 500)
     .outputs(<forestry:crafting_material:3>)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(180)
     .EUt(12)
 .buildAndRegister();
@@ -468,7 +501,7 @@ assembler.recipeBuilder()
     .inputs(<railcraft:rebar>)
     .fluidInputs(<liquid:concrete> * 750)
     .outputs(<railcraft:tie:1>)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(120)
     .EUt(12)
 .buildAndRegister();
@@ -481,7 +514,7 @@ assembler.recipeBuilder()
     .inputs(<ore:slabWood>)
     .fluidInputs(<liquid:creosote> * 750)
     .outputs(<railcraft:tie>)
-    .property("circuit", 16)
+    .circuit(16)
     .duration(120)
     .EUt(12)
 .buildAndRegister();
@@ -494,7 +527,7 @@ recipes.addShaped(<forestry:soldering_iron> * 1, [[<ore:screwIron>, <ore:stickIr
 Carpenter.removeRecipe(<extrabees:misc>);
 assembler.recipeBuilder()
     .inputs(<extratrees:misc:2>, <ore:itemPollen>, <ore:itemBeeswax>*2, <ore:dropRoyalJelly>)
-    .property("circuit", 16)
+    .circuit(16)
     .fluidInputs(<liquid:binnie.turpentine> * 100)
     .outputs(<extrabees:misc>)
     .duration(160)
@@ -505,7 +538,7 @@ assembler.recipeBuilder()
 Carpenter.removeRecipe(<forestry:carton>);
 assembler.recipeBuilder()
     .inputs(<ore:dustWood>*4)
-    .property("circuit", 15)
+    .circuit(15)
     .fluidInputs(<liquid:water> * 1000)
     .outputs(<forestry:carton> * 2)
     .duration(160)

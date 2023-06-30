@@ -1,37 +1,37 @@
-§a§lVersion Beta§r§f 2.1:
-
-HUGE Patch! thanks for all the patience, now i'am back at development! =)
+§a§lVersion Beta§r§f 3.3:
 
 §b§lMod Related Changes§r§f:
 
 - Updated AE2 Fluid Crafting
-- Updated AE2 Unofficial
-- Updated Acqua Acrobatics
+- Updated Mekanism Community Edition
+- Updated Open Computers
+- Updated CensoredASM
+- Updated HEI
 - Updated Crafttweaker
-- Updated Package Auto
-- Updated Package ExCrafting
-- Updated UniversalTweaks
-- Updated Legendary Tooltips
-- Updated Xaeros Minimap and Worldmap.
 
-- Removed WaterControl Extreme (Implemented by UniversalTweaks)
-- Removed Custom Cursor Mod (was causing some issues for some players)
+- Added IronChests
+- Added Startup Timer
+- Added Performant
+- Added ULV Covers
 
 §2§lFixes§r§f:
 
-- Battery Cell Cast's should now be castable.
-- Basic Worktable can now be done with Plates or Planks of Treated Wood.
-- Fixed issue that incorrectly displayed magnetic textures for Light and Heavy Plates.
-- The Whole Agar production Line doesn't require a Sterile Cleanroom (only a normal one).
-- Microprocessors and Integrated Processors can now correctly be done in HV with SOCs.
+- Fixed Incorrect Flour Recipes.
+- Fixed Broken Main Menu Buttom (CurseForge Page)
+- Fixed Incorrect Recipe for the ExNihilo Sieve
+- Fixed Incorrect Baguette and Rice Bread Recipes.
 
 §5§lMiscellaneous§r§f:
 
-- Buff to Conarm, now Tinker's Armor can be extruded at LV. suggestion by Dubl33 issue #62
-- Added tooltips to help players with Forestry/Railcraft Backpacks.
-- Added Quest and Tooltips to help players produce Tannin before Leather.
-- Now the quest "Process of Obtaining Zinc Part II" accepts and mentions the option of Using a Cauldron.
-- Adjusted some recipes of Forestry Machines and components.
-- Pressed Wax can now be done by hand.
-- Adjusted all GTCEU Crate and Drum Recipes, this should also fix the issues with crafting them.
-- Improved the capabilities of Forestry's Backpacks (more stuff can go inside of them)
+- Really Improved the Quest Book with more Chapters, organization and descriptions for certain items,mechanics and aspects of the pack.
+- Tweaked some values for Gendustry Machines, in general, increasing their buffers and energy comsumption.
+- Some Tweaks to Chapter 1 Quests in order to make them more Clear.
+- Removed Flint Mortar and Knife alternate Recipes.
+- Buffed the Redstone Clock (XU2) Recipe, doesn't need a Clock anymore, wich means no need for Gold.
+- Lowered the amount of minimum saturation for contribuitions to Spice of Life Health Milestones, wich means, Binnies Brews will now contribute to it.
+- Disabled Binnies Field Kit (essentially a bee analyzer that consumes Paper instead of honey drops).
+- Buffed Smeltery Controller Recipe (Gold Cog -> Bronze Gear).
+- Gregtech's Concrete and Dark Concrete now have compat with Chisel
+- Gregtech's Light Concrete can now be melted aswell.
+- Gregetech's Dark Concrete can now also be made using ExNihilo's Barrel and Pyrotech's Soaking Pot.
+- Added Crop to Seed Recipes for certain Crops (Wheat, Barley, Lotus...)

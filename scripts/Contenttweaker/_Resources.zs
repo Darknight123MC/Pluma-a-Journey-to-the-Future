@@ -6,6 +6,7 @@ import mods.contenttweaker.Color;
 import mods.contenttweaker.Item;
 import mods.contenttweaker.ItemFood;
 import mods.contenttweaker.MaterialSystem;
+import mods.contenttweaker.Commands;
 
 
 print("--------------- Custom Resources Start------------------");
@@ -315,31 +316,6 @@ heart_of_the_magical_woods.register();
 // Osglolapis ==============
 var osglolapis = VanillaFactory.createItem("osglolapis");
 osglolapis.register();
-
-
-// Mirion Plate ================================================================================
-var mirionplate = VanillaFactory.createItem("mirionplate");
-mirionplate.register();
-
-// Mirion Gear ================================================================================
-var miriongear = VanillaFactory.createItem("miriongear");
-miriongear.register();
-
-// Alumite Plate ================================================================================
-var alumiteplate = VanillaFactory.createItem("alumiteplate");
-alumiteplate.register();
-
-// Alumite Gear ================================================================================
-var alumitegear = VanillaFactory.createItem("alumitegear");
-alumitegear.register();
-
-// Osgloglas Plate ================================================================================
-var osgloglasplate = VanillaFactory.createItem("osgloglasplate");
-osgloglasplate.register();
-
-// Osgloglas Gear ================================================================================
-var osgloglasgear = VanillaFactory.createItem("osgloglasgear");
-osgloglasgear.register();
 
 // KnightMetal Plate ================================================================================
 var knightmetalplate = VanillaFactory.createItem("knightmetalplate");
@@ -1032,8 +1008,8 @@ inscriber_speculative_circuit.register();
 // === //
 
 // Blank Press
-var inscriber_blank_press = VanillaFactory.createItem("inscriber_blank_press");
-inscriber_blank_press.register();
+// var inscriber_blank_press = VanillaFactory.createItem("inscriber_blank_press");
+// inscriber_blank_press.register();
 
 // === //
 
@@ -1113,6 +1089,47 @@ purpleprint.register();
 
 var base_focal_sphere = VanillaFactory.createItem("base_focal_sphere");
 base_focal_sphere.register();
+
+//Primorial Fragment
+
+var primordial_fragment = VanillaFactory.createItem("primordial_fragment");
+primordial_fragment.rarity = "EPIC";
+primordial_fragment.glowing = true;
+primordial_fragment.register();
+
+//Impetus Crystal
+var impetus_crystal = VanillaFactory.createItem("impetus_crystal");
+impetus_crystal.rarity = "EPIC";
+impetus_crystal.glowing = true;
+impetus_crystal.register();
+
+//Conducted Impetus
+var conducted_impetus = VanillaFactory.createItem("conducted_impetus");
+conducted_impetus.rarity = "EPIC";
+conducted_impetus.glowing = true;
+conducted_impetus.register();
+
+//Goddess Pearl
+
+var goddess_pearl = VanillaFactory.createItem("goddess_pearl");
+goddess_pearl.rarity = "EPIC";
+goddess_pearl.glowing = true;
+goddess_pearl.maxStackSize = 1;
+goddess_pearl.register();
+
+//Unwarpification Talisman
+
+var unwarpification_talisman = VanillaFactory.createItem("unwarpification_talisman");
+unwarpification_talisman.maxStackSize = 1;
+unwarpification_talisman.rarity = "EPIC";
+unwarpification_talisman.itemRightClick = function(stack, world, player, hand) {
+    Commands.call("tc warp @p set 0 PERM", player, world, false, true);
+    Commands.call("tc warp @p set 0", player, world, false, true);
+    Commands.call("tc warp @p set 0 TEMP", player, world, false, true);
+    Commands.call('/tellraw @p {"text":"Your warp has been set to 0!","bold":true}', player, world, false, true);
+    return "Pass";
+};
+unwarpification_talisman.register();
 
 print("--------------- Custom Resources End ------------------");
 

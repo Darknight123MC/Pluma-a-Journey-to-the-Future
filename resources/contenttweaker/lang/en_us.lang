@@ -141,15 +141,6 @@ tile.contenttweaker.diabolic_carbide_block.name=Diabolic Carbide Block
 item.contenttweaker.osglolapis.name=Osglolapis
 tile.contenttweaker.osglolapis_block.name=Osglolapis Block
 
-item.contenttweaker.mirionplate.name=Mirion Plate
-item.contenttweaker.miriongear.name=Mirion Gear
-
-item.contenttweaker.alumiteplate.name=Alumite Plate
-item.contenttweaker.alumitegear.name=Alumite Gear
-
-item.contenttweaker.osgloglasplate.name=Osgloglas Plate
-item.contenttweaker.osgloglasgear.name=Osgloglas Gear
-
 item.contenttweaker.knightmetalplate.name=Knightmetal Plate
 item.contenttweaker.knightmetalgear.name=Knightmetal Gear
 item.contenttweaker.fieryplate.name=Fiery Plate
@@ -480,3 +471,11 @@ item.contenttweaker.hand_framing_tool.name=Hand Framing Tool
 item.contenttweaker.purpleprint.name=§5Multiblock Visualizer
 
 item.contenttweaker.base_focal_sphere.name=Base Focal Sphere
+
+item.contenttweaker.primordial_fragment.name=§dPrimordial Fragment§f
+item.contenttweaker.goddess_pearl.name=§dGoddess Pearl§f
+
+item.contenttweaker.unwarpification_talisman.name=§5Unwarpification Talisman§f
+
+item.contenttweaker.impetus_crystal.name=Impetus Crystal
+item.contenttweaker.conducted_impetus.name=Conducted Impetus

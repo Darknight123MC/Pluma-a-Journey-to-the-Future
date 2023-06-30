@@ -17,13 +17,6 @@ import mods.advancedrocketry.CuttingMachine;
 //macerator.findRecipe(8, [<forestry:logs.5>], null).remove();
 
 var Woods as IItemStack[IIngredient] = {
-    <minecraft:log2:0>: <minecraft:planks:4>,
-    <minecraft:log2:1>: <minecraft:planks:5>,
-    <minecraft:log:0>: <minecraft:planks:0>,
-    <minecraft:log:1>: <minecraft:planks:1>,
-    <minecraft:log:2>: <minecraft:planks:2>,
-    <minecraft:log:3>: <minecraft:planks:3>,
-    <gregtech:rubber_log>: <gregtech:planks>,
     <integrateddynamics:menril_log:0>: <integrateddynamics:menril_planks:0>,
     <biomesoplenty:log_0:4>: <biomesoplenty:planks_0:0>,
     <biomesoplenty:log_0:5>: <biomesoplenty:planks_0:1>,
@@ -266,7 +259,7 @@ var Woods as IItemStack[IIngredient] = {
     //<plants2:nether_log:0>: <plants2:planks:0>,
     //<plants2:nether_log:1>: <plants2:planks:1>,
     <traverse:fir_log:0>: <traverse:fir_planks:0>,
-    //<advancedrocketry:alienwood:0>: <advancedrocketry:planks:0>,
+    <advancedrocketry:alienwood:0>: <advancedrocketry:planks:0>,
     <roots:wildwood_log:0>: <roots:wildwood_planks:0>,
     <mysticalworld:charred_log:0>: <mysticalworld:charred_planks:0>,
     <natura:nether_logs:0>: <natura:nether_planks:0>,
@@ -307,11 +300,20 @@ var Woods as IItemStack[IIngredient] = {
     <thaumcraft:plank_greatwood:0>: <thaumcraft:slab_greatwood:0>,
     <thaumcraft:plank_silverwood:0>: <thaumcraft:slab_silverwood:0>,
     <randomthings:spectrelog:0>: <randomthings:spectreplank:0>,
-    <extrautils2:decorativesolidwood:1>: <extrautils2:decorativesolidwood>
+    <extrautils2:decorativesolidwood:1>: <extrautils2:decorativesolidwood>,
+    //<forbiddenmagicre:log_tainted>: <forbiddenmagicre:taint_planks>,
+    <thaumcraft:taint_log>: <thaumadditions:taintwood_planks>,
+    <extrautils2:ironwood_log:0>: <extrautils2:ironwood_planks:0>,
+    <extrautils2:ironwood_log:1>: <extrautils2:ironwood_planks:1>
     };
 for IItemStack, IIngredient in Woods {
         recipes.remove(IIngredient);
+        // recipes.removeShapeless(IIngredient, [IItemStack], false);
 
+        // craft.reshapeless(IIngredient*2, "#T", {
+        //     "#": IItemStack, # Wood
+        //     "T": <ore:gtceSaws>, # Iron Saw
+        // });
 
 		saw.recipeBuilder()
 			.inputs(IItemStack)
@@ -419,12 +421,12 @@ var PlanksToSlabs as IItemStack[IIngredient] = {
     <biomesoplenty:planks_0:7>: <biomesoplenty:wood_slab_0:7>,
     <biomesoplenty:planks_0:8>: <biomesoplenty:wood_slab_1:0>,
     <biomesoplenty:planks_0:9>: <biomesoplenty:wood_slab_1:1>,
-    <minecraft:planks:0>: <minecraft:wooden_slab:0>,
-    <minecraft:planks:1>: <minecraft:wooden_slab:1>,
-    <minecraft:planks:2>: <minecraft:wooden_slab:2>,
-    <minecraft:planks:3>: <minecraft:wooden_slab:3>,
-    <minecraft:planks:4>: <minecraft:wooden_slab:4>,
-    <minecraft:planks:5>: <minecraft:wooden_slab:5>,
+    // <minecraft:planks:0>: <minecraft:wooden_slab:0>,
+    // <minecraft:planks:1>: <minecraft:wooden_slab:1>,
+    // <minecraft:planks:2>: <minecraft:wooden_slab:2>,
+    // <minecraft:planks:3>: <minecraft:wooden_slab:3>,
+    // <minecraft:planks:4>: <minecraft:wooden_slab:4>,
+    // <minecraft:planks:5>: <minecraft:wooden_slab:5>,
     //<quark:stained_planks> : <quark:stained_planks_white_slab>,
     //<quark:stained_planks:1> : <quark:stained_planks_orange_slab>,
     //<quark:stained_planks:2> : <quark:stained_planks_magenta_slab>,
@@ -801,7 +803,13 @@ var NonWoodSlabs as IItemStack[IIngredient] = {
     <natura:colored_grass>: <natura:colored_grass_slab>,
 
     <pyrotech:masonry_brick_block>: <pyrotech:masonry_brick_slab>,
-    <pyrotech:refractory_brick_block>: <pyrotech:refractory_brick_slab>
+    <pyrotech:refractory_brick_block>: <pyrotech:refractory_brick_slab>,
+
+    <thaumcraft:stone_arcane> : <thaumcraft:slab_arcane_stone>,
+    <thaumcraft:stone_arcane_brick> : <thaumcraft:slab_arcane_brick>,
+    <thaumcraft:stone_ancient> : <thaumcraft:slab_ancient>,
+    <thaumcraft:stone_eldritch_tile> : <thaumcraft:slab_eldritch>,
+    <thaumcraft:stone_ancient_tile> : <thaumicaugmentation:slab>, 
 
     };
 
@@ -847,4 +855,41 @@ var PlanksToSlabs2 as IItemStack[IIngredient] = {
 for IItemStack, IIngredient in PlanksToSlabs2 {
         recipes.remove(IIngredient);
         SagMill.addRecipe([IIngredient * 2, <ore:dustWood>.firstItem], [1.0, 0.5], IItemStack, "CHANCE_ONLY");
+}
+
+//Unfortunatly, certain Recipes are Overrided from GT, then, those need materials need to be added here.
+
+var LogToPlanksWithoutGT as IItemStack[IIngredient] = {
+    <minecraft:log2:0>: <minecraft:planks:4>,
+    <minecraft:log2:1>: <minecraft:planks:5>,
+    <minecraft:log:0>: <minecraft:planks:0>,
+    <minecraft:log:1>: <minecraft:planks:1>,
+    <minecraft:log:2>: <minecraft:planks:2>,
+    <minecraft:log:3>: <minecraft:planks:3>,
+    <gregtech:rubber_log>: <gregtech:planks>,
+    
+    };
+for IItemStack, IIngredient in LogToPlanksWithoutGT {
+        recipes.remove(IIngredient);
+
+        mods.advancedrocketry.CuttingMachine.addRecipe(IIngredient*4, 100/*ticks*/, 800/*rf/t*/, IItemStack);
+
+}
+
+var PlanksToSlabsWithoutGT as IItemStack[IIngredient] = {
+    <minecraft:planks:0>: <minecraft:wooden_slab:0>,
+    <minecraft:planks:1>: <minecraft:wooden_slab:1>,
+    <minecraft:planks:2>: <minecraft:wooden_slab:2>,
+    <minecraft:planks:3>: <minecraft:wooden_slab:3>,
+    <minecraft:planks:4>: <minecraft:wooden_slab:4>,
+    <minecraft:planks:5>: <minecraft:wooden_slab:5>,
+
+    <gregtech:planks>: <gregtech:wood_slab>,
+    <gregtech:planks:1>: <gregtech:wood_slab:1>
+    };
+for IItemStack, IIngredient in PlanksToSlabsWithoutGT {
+        recipes.remove(IIngredient);
+
+        mods.advancedrocketry.CuttingMachine.addRecipe(IIngredient*4, 100/*ticks*/, 800/*rf/t*/, IItemStack);
+
 }

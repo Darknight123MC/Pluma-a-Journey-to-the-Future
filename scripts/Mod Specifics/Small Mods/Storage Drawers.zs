@@ -46,7 +46,9 @@ var DrawerRecipeRemovals as IItemStack[] = [
 <storagedrawers:basicdrawers:4>.withTag({material: "birch"}),
 <storagedrawers:basicdrawers:4>.withTag({material: "jungle"}),
 <storagedrawers:basicdrawers:4>.withTag({material: "acacia"}),
-<storagedrawers:basicdrawers:4>.withTag({material: "dark_oak"})
+<storagedrawers:basicdrawers:4>.withTag({material: "dark_oak"}),
+<gregtechdrawers:basicdrawers_gregtech_rubber_wood:*>,
+<gregtechdrawers:basicdrawers_gregtech_treated_wood:*>
 ];
 for i in DrawerRecipeRemovals {
 recipes.remove(i);
@@ -65,7 +67,9 @@ var BasicDrawers as IItemStack[] = [
 <storagedrawers:basicdrawers>.withTag({material: "birch"}),
 <storagedrawers:basicdrawers>.withTag({material: "jungle"}),
 <storagedrawers:basicdrawers>.withTag({material: "acacia"}),
-<storagedrawers:basicdrawers>.withTag({material: "dark_oak"})
+<storagedrawers:basicdrawers>.withTag({material: "dark_oak"}),
+<gregtechdrawers:basicdrawers_gregtech_rubber_wood>,
+<gregtechdrawers:basicdrawers_gregtech_treated_wood>
 ];
 for i in BasicDrawers {
 <ore:basicDrawer>.add(i);
@@ -77,7 +81,9 @@ var Basic1x2Drawers as IItemStack[] = [
 <storagedrawers:basicdrawers:1>.withTag({material: "birch"}),
 <storagedrawers:basicdrawers:1>.withTag({material: "jungle"}),
 <storagedrawers:basicdrawers:1>.withTag({material: "acacia"}),
-<storagedrawers:basicdrawers:1>.withTag({material: "dark_oak"})
+<storagedrawers:basicdrawers:1>.withTag({material: "dark_oak"}),
+<gregtechdrawers:basicdrawers_gregtech_rubber_wood:1>,
+<gregtechdrawers:basicdrawers_gregtech_treated_wood:1>
 ];
 for i in Basic1x2Drawers {
 <ore:basic1x2Drawer>.add(i);
@@ -89,7 +95,9 @@ var Basic1x4Drawers as IItemStack[] = [
 <storagedrawers:basicdrawers:2>.withTag({material: "birch"}),
 <storagedrawers:basicdrawers:2>.withTag({material: "jungle"}),
 <storagedrawers:basicdrawers:2>.withTag({material: "acacia"}),
-<storagedrawers:basicdrawers:2>.withTag({material: "dark_oak"})
+<storagedrawers:basicdrawers:2>.withTag({material: "dark_oak"}),
+<gregtechdrawers:basicdrawers_gregtech_rubber_wood:2>,
+<gregtechdrawers:basicdrawers_gregtech_treated_wood:2>
 ];
 for i in Basic1x4Drawers {
 <ore:basic1x4Drawer>.add(i);
@@ -102,7 +110,9 @@ var HalfBasic1x2Drawers as IItemStack[] = [
 <storagedrawers:basicdrawers:3>.withTag({material: "birch"}),
 <storagedrawers:basicdrawers:3>.withTag({material: "jungle"}),
 <storagedrawers:basicdrawers:3>.withTag({material: "acacia"}),
-<storagedrawers:basicdrawers:3>.withTag({material: "dark_oak"})
+<storagedrawers:basicdrawers:3>.withTag({material: "dark_oak"}),
+<gregtechdrawers:basicdrawers_gregtech_rubber_wood:3>,
+<gregtechdrawers:basicdrawers_gregtech_treated_wood:3>
 ];
 for i in HalfBasic1x2Drawers {
 <ore:halfBasic1x2Drawer>.add(i);
@@ -114,7 +124,9 @@ var HalfBasic1x4Drawers as IItemStack[] = [
 <storagedrawers:basicdrawers:4>.withTag({material: "birch"}),
 <storagedrawers:basicdrawers:4>.withTag({material: "jungle"}),
 <storagedrawers:basicdrawers:4>.withTag({material: "acacia"}),
-<storagedrawers:basicdrawers:4>.withTag({material: "dark_oak"})
+<storagedrawers:basicdrawers:4>.withTag({material: "dark_oak"}),
+<gregtechdrawers:basicdrawers_gregtech_rubber_wood:4>,
+<gregtechdrawers:basicdrawers_gregtech_treated_wood:4>
 ];
 for i in HalfBasic1x4Drawers {
 <ore:halfBasic1x4Drawer>.add(i);
@@ -133,7 +145,7 @@ recipes.remove(<fluiddrawers:tank:0>);
 assembler.recipeBuilder()
     .inputs([<ore:plateDarkSteel> * 8, <mia:armored_glass> * 4])
     .fluidInputs([<liquid:super_glue> * 500]) 
-    .property("circuit", 8)
+    .circuit(8)
     .outputs(<fluiddrawers:tank:0>)
     .duration(100)
     .EUt(16)
@@ -144,11 +156,13 @@ assembler.recipeBuilder()
 
 val basicDrawers as IItemStack[][IItemStack] = {
 	   <minecraft:planks>   : [<storagedrawers:basicdrawers>.withTag({material: "oak"})]
-    , <minecraft:planks:1>  : [<storagedrawers:basicdrawers>.withTag({material: "spruce"})]
+  , <minecraft:planks:1>  : [<storagedrawers:basicdrawers>.withTag({material: "spruce"})]
 	, <minecraft:planks:2>  : [<storagedrawers:basicdrawers>.withTag({material: "birch"})]
 	, <minecraft:planks:3>  : [<storagedrawers:basicdrawers>.withTag({material: "jungle"})]	
 	, <minecraft:planks:4>  : [<storagedrawers:basicdrawers>.withTag({material: "acacia"})]
-	, <minecraft:planks:5>  : [<storagedrawers:basicdrawers>.withTag({material: "dark_oak"})]					
+	, <minecraft:planks:5>  : [<storagedrawers:basicdrawers>.withTag({material: "dark_oak"})]
+  , <gregtech:planks>     : [<gregtechdrawers:basicdrawers_gregtech_rubber_wood>]
+  , <gregtech:planks:1>   : [<gregtechdrawers:basicdrawers_gregtech_treated_wood>]		
 };
 
 for IItemStack, itemStacks in basicDrawers {
@@ -158,7 +172,7 @@ for IItemStack, itemStacks in basicDrawers {
     assembler.recipeBuilder()
     .inputs([IItemStack * 6, <ore:chestWood>, <pyrotech:material:23> * 2])
     .fluidInputs([<liquid:glue> * 500])
-    .property("circuit", 8)
+    .circuit(8)
     .outputs(outputDrawer)
     .duration(80)
     .EUt(8)
@@ -179,12 +193,14 @@ for IItemStack, itemStacks in basicDrawers {
 //Basic Drawer 1x2 (All Types)
 
 val basic1x2Drawers as IItemStack[][IItemStack] = {
-	   <minecraft:planks>   : [<storagedrawers:basicdrawers:1>.withTag({material: "oak"})]
-    , <minecraft:planks:1>  : [<storagedrawers:basicdrawers:1>.withTag({material: "spruce"})]
+	  <minecraft:planks>   : [<storagedrawers:basicdrawers:1>.withTag({material: "oak"})]
+  , <minecraft:planks:1>  : [<storagedrawers:basicdrawers:1>.withTag({material: "spruce"})]
 	, <minecraft:planks:2>  : [<storagedrawers:basicdrawers:1>.withTag({material: "birch"})]
 	, <minecraft:planks:3>  : [<storagedrawers:basicdrawers:1>.withTag({material: "jungle"})]	
 	, <minecraft:planks:4>  : [<storagedrawers:basicdrawers:1>.withTag({material: "acacia"})]
-	, <minecraft:planks:5>  : [<storagedrawers:basicdrawers:1>.withTag({material: "dark_oak"})]					
+	, <minecraft:planks:5>  : [<storagedrawers:basicdrawers:1>.withTag({material: "dark_oak"})]
+  , <gregtech:planks>     : [<gregtechdrawers:basicdrawers_gregtech_rubber_wood:1>]
+  , <gregtech:planks:1>   : [<gregtechdrawers:basicdrawers_gregtech_treated_wood:1>]			
 };
 
 for IItemStack, itemStacks in basic1x2Drawers {
@@ -194,7 +210,7 @@ for IItemStack, itemStacks in basic1x2Drawers {
     assembler.recipeBuilder()
     .inputs([IItemStack * 6, <ore:chestWood> * 2, <pyrotech:material:23> * 1])
     .fluidInputs([<liquid:glue> * 500])
-    .property("circuit", 9)
+    .circuit(9)
     .outputs(output1x2Drawer * 2)
     .duration(80)
     .EUt(8)
@@ -215,12 +231,14 @@ for IItemStack, itemStacks in basic1x2Drawers {
 //Basic Drawer 2x2 (All Types)
 
 val basic2x2Drawers as IItemStack[][IItemStack] = {
-	   <minecraft:planks>   : [<storagedrawers:basicdrawers:2>.withTag({material: "oak"})]
-    , <minecraft:planks:1>  : [<storagedrawers:basicdrawers:2>.withTag({material: "spruce"})]
+	  <minecraft:planks>   : [<storagedrawers:basicdrawers:2>.withTag({material: "oak"})]
+  , <minecraft:planks:1>  : [<storagedrawers:basicdrawers:2>.withTag({material: "spruce"})]
 	, <minecraft:planks:2>  : [<storagedrawers:basicdrawers:2>.withTag({material: "birch"})]
 	, <minecraft:planks:3>  : [<storagedrawers:basicdrawers:2>.withTag({material: "jungle"})]	
 	, <minecraft:planks:4>  : [<storagedrawers:basicdrawers:2>.withTag({material: "acacia"})]
-	, <minecraft:planks:5>  : [<storagedrawers:basicdrawers:2>.withTag({material: "dark_oak"})]					
+	, <minecraft:planks:5>  : [<storagedrawers:basicdrawers:2>.withTag({material: "dark_oak"})]
+  , <gregtech:planks>     : [<gregtechdrawers:basicdrawers_gregtech_rubber_wood:2>]
+  , <gregtech:planks:1>   : [<gregtechdrawers:basicdrawers_gregtech_treated_wood:2>]						
 };
 
 for IItemStack, itemStacks in basic2x2Drawers {
@@ -230,7 +248,7 @@ for IItemStack, itemStacks in basic2x2Drawers {
     assembler.recipeBuilder()
     .inputs([IItemStack * 6, <ore:chestWood> * 4, <pyrotech:material:23> * 2])
     .fluidInputs([<liquid:glue> * 500]) 
-    .property("circuit", 10)
+    .circuit(10)
     .outputs(output2x2Drawer * 4)
     .duration(80)
     .EUt(8)
@@ -251,12 +269,14 @@ for IItemStack, itemStacks in basic2x2Drawers {
 //Basic Half Drawer 1x2 (All Types)
 
 val halfbasic1x2Drawers as IItemStack[][IItemStack] = {
-	   <minecraft:wooden_slab>   : [<storagedrawers:basicdrawers:3>.withTag({material: "oak"})]
-    , <minecraft:wooden_slab:1>  : [<storagedrawers:basicdrawers:3>.withTag({material: "spruce"})]
+	  <minecraft:wooden_slab>   : [<storagedrawers:basicdrawers:3>.withTag({material: "oak"})]
+  , <minecraft:wooden_slab:1>  : [<storagedrawers:basicdrawers:3>.withTag({material: "spruce"})]
 	, <minecraft:wooden_slab:2>  : [<storagedrawers:basicdrawers:3>.withTag({material: "birch"})]
 	, <minecraft:wooden_slab:3>  : [<storagedrawers:basicdrawers:3>.withTag({material: "jungle"})]	
 	, <minecraft:wooden_slab:4>  : [<storagedrawers:basicdrawers:3>.withTag({material: "acacia"})]
-	, <minecraft:wooden_slab:5>  : [<storagedrawers:basicdrawers:3>.withTag({material: "dark_oak"})]					
+	, <minecraft:wooden_slab:5>  : [<storagedrawers:basicdrawers:3>.withTag({material: "dark_oak"})]
+  , <gregtech:planks>          : [<gregtechdrawers:basicdrawers_gregtech_rubber_wood:3>]
+  , <gregtech:planks:1>        : [<gregtechdrawers:basicdrawers_gregtech_treated_wood:3>]						
 };
 
 for IItemStack, itemStacks in halfbasic1x2Drawers {
@@ -266,7 +286,7 @@ for IItemStack, itemStacks in halfbasic1x2Drawers {
     assembler.recipeBuilder()
     .inputs([IItemStack * 6, <ore:chestWood> * 2, <pyrotech:material:23> * 1])
     .fluidInputs([<liquid:glue> * 500]) 
-    .property("circuit", 11)
+    .circuit(11)
     .outputs(outputhalf1x2Drawer * 2)
     .duration(80)
     .EUt(8)
@@ -287,12 +307,14 @@ for IItemStack, itemStacks in halfbasic1x2Drawers {
 //Basic Half Drawer 2x2 (All Types)
 
 val halfbasic2x2Drawers as IItemStack[][IItemStack] = {
-	   <minecraft:wooden_slab>   : [<storagedrawers:basicdrawers:4>.withTag({material: "oak"})]
-    , <minecraft:wooden_slab:1>  : [<storagedrawers:basicdrawers:4>.withTag({material: "spruce"})]
+	  <minecraft:wooden_slab>   : [<storagedrawers:basicdrawers:4>.withTag({material: "oak"})]
+  , <minecraft:wooden_slab:1>  : [<storagedrawers:basicdrawers:4>.withTag({material: "spruce"})]
 	, <minecraft:wooden_slab:2>  : [<storagedrawers:basicdrawers:4>.withTag({material: "birch"})]
 	, <minecraft:wooden_slab:3>  : [<storagedrawers:basicdrawers:4>.withTag({material: "jungle"})]	
 	, <minecraft:wooden_slab:4>  : [<storagedrawers:basicdrawers:4>.withTag({material: "acacia"})]
-	, <minecraft:wooden_slab:5>  : [<storagedrawers:basicdrawers:4>.withTag({material: "dark_oak"})]					
+	, <minecraft:wooden_slab:5>  : [<storagedrawers:basicdrawers:4>.withTag({material: "dark_oak"})]
+  , <gregtech:planks>     : [<gregtechdrawers:basicdrawers_gregtech_rubber_wood:4>]
+  , <gregtech:planks:1>     : [<gregtechdrawers:basicdrawers_gregtech_treated_wood:4>]				
 };
 
 for IItemStack, itemStacks in halfbasic2x2Drawers {
@@ -302,7 +324,7 @@ for IItemStack, itemStacks in halfbasic2x2Drawers {
     assembler.recipeBuilder()
     .inputs([IItemStack * 6, <ore:chestWood> * 4, <pyrotech:material:23> * 2])
     .fluidInputs([<liquid:glue> * 500]) 
-    .property("circuit", 12)
+    .circuit(12)
     .outputs(outputhalf2x2Drawer * 4)
     .duration(80)
     .EUt(8)
@@ -323,12 +345,14 @@ for IItemStack, itemStacks in halfbasic2x2Drawers {
 //Basic Trims (All Types)
 
 val basicTrims as IItemStack[][IItemStack] = {
-	   <minecraft:planks>   : [<storagedrawers:trim>]
-    , <minecraft:planks:1>  : [<storagedrawers:trim:1>]
+	  <minecraft:planks>   : [<storagedrawers:trim>]
+  , <minecraft:planks:1>  : [<storagedrawers:trim:1>]
 	, <minecraft:planks:2>  : [<storagedrawers:trim:2>]
 	, <minecraft:planks:3>  : [<storagedrawers:trim:3>]	
 	, <minecraft:planks:4>  : [<storagedrawers:trim:4>]
-	, <minecraft:planks:5>  : [<storagedrawers:trim:5>]					
+	, <minecraft:planks:5>  : [<storagedrawers:trim:5>]
+	, <gregtech:planks>  : [<gregtechdrawers:trim_gregtech_rubber_wood>]
+	, <gregtech:planks:1>  : [<gregtechdrawers:trim_gregtech_treated_wood>]		
 };
 
 for IItemStack, itemStacks in basicTrims {
@@ -339,7 +363,7 @@ for IItemStack, itemStacks in basicTrims {
     assembler.recipeBuilder()
     .inputs([IItemStack * 5, <ore:stickTreatedWood> * 4])
     .fluidInputs([<liquid:glue> * 250])
-    .property("circuit", 8)
+    .circuit(8)
     .outputs(outputTrim * 4)
     .duration(60)
     .EUt(4)
@@ -370,9 +394,9 @@ RecipeBuilder.get("basic")
   .create();
 
 assembler.recipeBuilder()
-    .inputs([<gregtech:meta_item_1:172>, <ore:gearBronze>, <ore:basic1x2Drawer>, <ore:plateStone> * 5])
+    .inputs([<ore:craftingPiston> * 2, <ore:gearBronze>, <ore:basic1x2Drawer>, <ore:plateStone> * 5])
     .fluidInputs([<liquid:refined_glue> * 200]) 
-    .property("circuit", 8)
+    .circuit(8)
     .outputs(<storagedrawers:compdrawers>)
     .duration(80)
     .EUt(16)
@@ -385,15 +409,15 @@ RecipeBuilder.get("basic")
     [<ore:plateStone>, <ore:plateStone>, <ore:plateStone>],
     [<ore:lightPlateConstructionAlloy>, <ore:basicDrawer>, <ore:lightPlateConstructionAlloy>],
     [<ore:plateStone>, <ore:circuitMv>, <ore:plateStone>]])
-  .setFluid(<liquid:super_glue> * 400)   
+  .setFluid(<liquid:refined_glue> * 400)   
   .addTool(<ore:gtceHardHammers>, 5)
   .addOutput(<storagedrawers:controller>)
   .create();
 
 assembler.recipeBuilder()
     .inputs([<ore:lightPlateConstructionAlloy> * 2, <ore:plateStone> * 5, <ore:circuitMv>, <ore:basicDrawer>])
-    .fluidInputs([<liquid:super_glue> * 400])
-    .property("circuit", 8)
+    .fluidInputs([<liquid:refined_glue> * 400])
+    .circuit(8)
     .outputs(<storagedrawers:controller>)
     .duration(100)
     .EUt(32)
@@ -406,15 +430,15 @@ RecipeBuilder.get("basic")
     [<ore:plateStone>, <ore:plateStone>, <ore:plateStone>],
     [<minecraft:comparator>, <ore:basicDrawer>, <minecraft:comparator>],
     [<ore:plateStone>, <ore:circuitMv>, <ore:plateStone>]])
-  .setFluid(<liquid:super_glue> * 300)   
+  .setFluid(<liquid:refined_glue> * 300)   
   .addTool(<ore:gtceHardHammers>, 5)
   .addOutput(<storagedrawers:controllerslave>)
   .create();
 
 assembler.recipeBuilder()
     .inputs([<minecraft:comparator> * 2, <ore:plateStone> * 5, <ore:circuitMv>, <ore:basicDrawer>])
-    .fluidInputs([<liquid:super_glue> * 300])  
-    .property("circuit", 8)
+    .fluidInputs([<liquid:refined_glue> * 300])  
+    .circuit(8)
     .outputs(<storagedrawers:controllerslave>)
     .duration(100)
     .EUt(32)

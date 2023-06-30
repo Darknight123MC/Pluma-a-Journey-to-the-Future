@@ -73,9 +73,11 @@ var castsAndCasters as IItemStack[IIngredient] = {
     <conarm:armor_plate>.withTag({Material: "bronze"}) : <tconstruct:cast>.withTag({PartType: "conarm:armor_plate"}),
     <conarm:armor_trim>.withTag({Material: "bronze"}) : <tconstruct:cast>.withTag({PartType: "conarm:armor_trim"}),
     <conarm:helmet_core>.withTag({Material: "bronze"}) : <tconstruct:cast>.withTag({PartType: "conarm:helmet_core"}),
-    <plustic:pipe_piece>.withTag({Material: "steel"}) : <tconstruct:cast>.withTag({PartType: "plustic:pipe_piece"}),
-    <plustic:battery_cell>.withTag({Material: "silver"}) : <tconstruct:cast>.withTag({PartType: "plustic:battery_cell"}),
+    //<plustic:pipe_piece>.withTag({Material: "steel"}) : <tconstruct:cast>.withTag({PartType: "plustic:pipe_piece"}),
+    //<plustic:battery_cell>.withTag({Material: "silver"}) : <tconstruct:cast>.withTag({PartType: "plustic:battery_cell"}),
     <conarm:polishing_kit>.withTag({Material: "bronze"}) : <tconstruct:cast>.withTag({PartType: "conarm:polishing_kit"}),
+
+    <tcomplement:sledge_head>.withTag({Material: "bronze"}) : <tconstruct:cast>.withTag({PartType: "tcomplement:sledge_head"})
 
     };
 for IItemStack, IIngredient in castsAndCasters {
@@ -110,9 +112,6 @@ Casting.removeBasinRecipe(<minecraft:coal_block>);
 
 Casting.removeTableRecipe(<minecraft:diamond>);
 Casting.removeBasinRecipe(<minecraft:diamond_block>);
-
-//Casting Concrete
-Casting.addBasinRecipe(<gregtech:stone_smooth:4>, null, <liquid:concrete>, 144);
 
 //Arrow Shaft Specifically
 mods.chisel.Carving.addVariation("tinkers_casts", <tconstruct:cast>.withTag({PartType: "tconstruct:arrow_shaft"}));

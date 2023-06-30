@@ -155,7 +155,7 @@ recipes.addShaped(<enderutilities:storage_0:6> * 1, [[null, null, null], [<gregt
 
 // Junk Storage Unit
 recipes.remove(<enderutilities:storage_0:7>);
-recipes.addShaped(<enderutilities:storage_0:7> * 1, [[<ore:compressed1xCobblestone>, <gregtech:machine:1625>, <ore:compressed1xCobblestone>], [<ore:compressed2xCobblestone>, <enderutilities:barrel:0>, <ore:compressed2xCobblestone>],[<ore:compressed1xCobblestone>, <gregtech:machine:1625>, <ore:compressed1xCobblestone>]]);
+recipes.addShaped(<enderutilities:storage_0:7> * 1, [[<ore:plateConstructionAlloy>, <ore:plateAAVoid>, <ore:plateConstructionAlloy>], [<ore:compressed2xCobblestone>, <enderutilities:barrel:0>, <ore:compressed2xCobblestone>],[<ore:plateConstructionAlloy>, <ore:plateAAVoid>, <ore:plateConstructionAlloy>]]);
 
 // Ender Capacitor (Basic)
 recipes.remove(<enderutilities:endercapacitor:0>);
@@ -221,9 +221,18 @@ recipes.addShaped(<enderutilities:linkcrystal:2> * 1, [[<ore:plateEndSteel>, <or
 recipes.remove(<enderutilities:builderswand>);
 recipes.addShaped(<enderutilities:builderswand> * 1, [[null, null, <enderutilities:enderpart:17>], [null, <betterbuilderswands:wanddiamond>, null],[<enderutilities:enderpart:2>, null, null]]);
 
-// Dolly
+# [Dolly] from [Steel Screw][+4]
 recipes.remove(<enderutilities:dolly>);
-recipes.addShaped(<enderutilities:dolly> * 1, [[<ore:screwSteel>, <ore:stickRedAlloy>, <ore:stickRedAlloy>], [<ore:gtceScrewdrivers>, <ore:stickRedAlloy>, <ore:stickRedAlloy>],[<ore:plateDenseConstructionAlloy>, <ore:plateDenseConstructionAlloy>, <ore:gearRubber>]]);
+craft.make(<enderutilities:dolly>, ["pretty",
+  "t ╱ ╱",
+  "S ╱ ╱",
+  "□ □ ¤"], {
+  "t": <ore:screwSteel>,      # Steel Screw
+  "╱": <ore:stickRedAlloy>,   # Red Alloy Rod
+  "S": <ore:gtceScrewdrivers>,# Iron Screwdriver
+  "□": <ore:lightPlateSteel>, # Light Steel Plate
+  "¤": <ore:gearRubber>,      # Rubber Gear
+});
 
 // Ender Arrow
 recipes.remove(<enderutilities:enderarrow>);

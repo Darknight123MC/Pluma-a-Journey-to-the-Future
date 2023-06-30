@@ -1,5 +1,6 @@
 import crafttweaker.item.IItemStack;
 import mods.artisanworktables.builder.RecipeBuilder;
+import mods.thermalexpansion.Infuser as EnergeticInfuser;
 
 // Sky Stone Chiseling
 
@@ -13,17 +14,79 @@ recipes.remove(i);
 mods.chisel.Carving.addVariation("skystone", i);
 }
 
+//Charged Quartz Tweaks
+EnergeticInfuser.removeRecipe(<appliedenergistics2:material>);
+<appliedenergistics2:material:1>.addTooltip(format.white("Can also be ") + format.yellow("Charged") + format.white(" with a ") + format.darkAqua("AE2 Charger") + format.white("."));
+
+# [Charger] from [Small Energetic Alloy Spring][+4]
+recipes.removeByRecipeName("appliedenergistics2:network/blocks/crystal_processing_charger");
+craft.make(<appliedenergistics2:charger>, ["pretty",
+  "□ ◊ □",
+  "п E  ",
+  "□ D □"], {
+  "□": <ore:plateEnergeticSilver>,      # Energetic Silver Plate
+  "◊": <contenttweaker:soot_covered_redstone>, # Soot Covered Redstone
+  "п": <ore:plateStainlessSteel>,       # Stainless Steel Plate
+  "E": <ore:springSmallEnergeticAlloy>, # Small Energetic Alloy Spring
+  "D": <ore:plateDoubleStainlessSteel>, # Double Stainless Steel Plate
+});
+
+craft.make(<appliedenergistics2:charger>, ["pretty",
+  "□ Ϟ □",
+  "п E  ",
+  "□ D □"], {
+  "□": <ore:plateEnergeticSilver>,      # Energetic Silver Plate
+  "Ϟ": <extrabees:honey_drop>,          # Energy Drop
+  "п": <ore:plateStainlessSteel>,       # Stainless Steel Plate
+  "E": <ore:springSmallEnergeticAlloy>, # Small Energetic Alloy Spring
+  "D": <ore:plateDoubleStainlessSteel>, # Double Stainless Steel Plate
+});
+
+//AE2 Fluix Tweaks
+
+mixer.recipeBuilder()
+    .inputs(<appliedenergistics2:material:1>, <ore:dustBlackQuartz>, <ore:dustRedstone>)
+    .fluidInputs(<liquid:distilled_water>*1000)
+    .outputs(<ore:dustFluix>.firstItem * 3)
+    .duration(80)
+    .EUt(500)
+.buildAndRegister();
+
+mixer.recipeBuilder()
+    .inputs(<appliedenergistics2:material:1>, <ore:dustNetherQuartz>, <ore:dustRedstone>)
+    .fluidInputs(<liquid:distilled_water>*1000)
+    .outputs(<ore:dustFluix>.firstItem * 2)
+    .duration(80)
+    .EUt(500)
+.buildAndRegister();
+
+mixer.recipeBuilder()
+    .inputs(<appliedenergistics2:material:1>, <ore:dustQuartzite>, <ore:dustRedstone>)
+    .fluidInputs(<liquid:distilled_water>*1000)
+    .outputs(<ore:dustFluix>.firstItem)
+    .duration(80)
+    .EUt(500)
+.buildAndRegister();
+
+<recipemap:autoclave>.recipeBuilder()
+    .inputs(<ore:dustFluix>)
+    .fluidInputs(<liquid:nacre> * 250)
+    .outputs(<ore:crystalFluix>.firstItem)
+    .duration(100)
+    .EUt(48)
+.buildAndRegister();
+
 // AE2 Crystal Seeds to Pure Crystal's ==================================================
 
-<appliedenergistics2:crystal_seed>.addTooltip(format.red(format.bold("Attention: ")) + format.white("cannot grow outside a conditioned environment."));
-<appliedenergistics2:crystal_seed:600>.addTooltip(format.red(format.bold("Attention: ")) + format.white("cannot grow outside a conditioned environment."));
-<appliedenergistics2:crystal_seed:1200>.addTooltip(format.red(format.bold("Attention: ")) + format.white("cannot grow outside a conditioned environment."));
+<appliedenergistics2:crystal_seed>.addTooltip(format.red(format.bold("Attention: ")) + format.white("Can grow inside of a conditioned environment or by using ") + format.blue("A Pool of Water") + format.white("."));
+<appliedenergistics2:crystal_seed:600>.addTooltip(format.red(format.bold("Attention: ")) + format.white("Can grow inside of a conditioned environment or by using ") + format.blue("A Pool of Water") + format.white("."));
+<appliedenergistics2:crystal_seed:1200>.addTooltip(format.red(format.bold("Attention: ")) + format.white("Can grow inside of a conditioned environment or by using ") + format.blue("A Pool of Water") + format.white("."));
 
 # Certuz
 recipes.remove(<appliedenergistics2:crystal_seed>);
 mixer.recipeBuilder()
     .inputs(<ore:dustCertusQuartz>, <ore:dustQuartzSand>*2, <ore:dustSiliconDioxide>)
-    .outputs(<appliedenergistics2:crystal_seed> * 2)
+    .outputs(<appliedenergistics2:crystal_seed> * 4)
     .duration(120)
     .EUt(500)
 .buildAndRegister();
@@ -35,7 +98,7 @@ chemreactor.recipeBuilder()
     .circuit(13)
     .outputs(<appliedenergistics2:material:10>)
     .chancedOutput(<appliedenergistics2:crystal_seed>, 500, 200)
-    .duration(1200)
+    .duration(120)
     .EUt(500)
 .buildAndRegister();
 
@@ -43,7 +106,7 @@ chemreactor.recipeBuilder()
 recipes.remove(<appliedenergistics2:crystal_seed:600>);
 mixer.recipeBuilder()
     .inputs(<ore:dustNetherQuartz>, <ore:dustQuartzSand>*2, <ore:dustSiliconDioxide>)
-    .outputs(<appliedenergistics2:crystal_seed:600> * 2)
+    .outputs(<appliedenergistics2:crystal_seed:600> * 4)
     .duration(120)
     .EUt(500)
 .buildAndRegister();
@@ -55,7 +118,7 @@ chemreactor.recipeBuilder()
     .circuit(13)
     .outputs(<appliedenergistics2:material:11>)
     .chancedOutput(<appliedenergistics2:crystal_seed:600>, 500, 200)
-    .duration(1200)
+    .duration(120)
     .EUt(500)
 .buildAndRegister();
 
@@ -63,7 +126,7 @@ chemreactor.recipeBuilder()
 recipes.remove(<appliedenergistics2:crystal_seed:1200>);
 mixer.recipeBuilder()
     .inputs(<ore:dustFluix>, <ore:dustQuartzSand>*2, <ore:dustSiliconDioxide>)
-    .outputs(<appliedenergistics2:crystal_seed:1200> * 2)
+    .outputs(<appliedenergistics2:crystal_seed:1200> * 4)
     .duration(120)
     .EUt(500)
 .buildAndRegister();
@@ -75,7 +138,7 @@ chemreactor.recipeBuilder()
     .circuit(13)
     .outputs(<appliedenergistics2:material:12>)
     .chancedOutput(<appliedenergistics2:crystal_seed:1200>, 500, 200)
-    .duration(1200)
+    .duration(120)
     .EUt(500)
 .buildAndRegister();
 
@@ -119,136 +182,6 @@ compressor.recipeBuilder()
 recipes.addShapeless("Pure_Fluix_Uncompress",<ore:crystalPureFluix>.firstItem*9,[<appliedenergistics2:fluix_block>]);
 
 // ========================================================================= //
-
-// LazyAE2 ================================================================= //
-
-//Carbonic Fluix Complex
-recipes.remove(<threng:material:1>);
-chemreactor.recipeBuilder()
-    .inputs([<ore:dustFluix>, <ore:itemSilicon>])
-    .fluidInputs([<liquid:carbon_monoxide> * 1000])
-    .outputs(<threng:material:1> * 4)
-    .duration(128)
-    .EUt(32)
-.buildAndRegister();
-
-# Fluix Steel =================================
-furnace.remove(<threng:material>);
-blast_furnace.recipeBuilder()
-    .inputs(<ore:ingotSteel>)
-    .inputs(<threng:material:1>)
-    .outputs(<threng:material>)
-    .property("temperature", 3600)
-    .duration(1400)
-    .EUt(520)
-.buildAndRegister();    
-
-  //Speculative Core x1
-chemical_bath.recipeBuilder()
-    .fluidInputs([<liquid:menril> * 500])
-    .inputs(<ore:crystalPureNetherQuartz>)
-    .outputs(<threng:material:7>)
-    .duration(160)
-    .EUt(32)
-.buildAndRegister();
-
-//Speculative Core x2
-recipes.remove(<threng:material:8>);
-forming.recipeBuilder()
-    .inputs(<threng:material:7> * 2, <ore:dustRedstone>)
-    .outputs(<threng:material:8>)
-    .duration(102)
-    .EUt(32)
-.buildAndRegister();
-
-//Speculative Core x4
-recipes.remove(<threng:material:9>);
-forming.recipeBuilder()
-    .inputs(<threng:material:8> * 2, <ore:dustSilicon>)
-    .outputs(<threng:material:9>)
-    .duration(104)
-    .EUt(32)
-.buildAndRegister();
-
-//Speculative Core x8
-recipes.remove(<threng:material:10>);
-forming.recipeBuilder()
-    .inputs(<threng:material:9> * 2, <ore:dustLithium>)
-    .outputs(<threng:material:10>)
-    .duration(108)
-    .EUt(128)
-.buildAndRegister();
-
-//Speculative Core x16
-recipes.remove(<threng:material:11>);
-forming.recipeBuilder()
-    .inputs(<threng:material:10> * 2, <ore:dustAluminium>)
-    .outputs(<threng:material:11>)
-    .duration(116)
-    .EUt(128)
-.buildAndRegister();
-
-//Speculative Core x32
-recipes.remove(<threng:material:12>);
-forming.recipeBuilder()
-    .inputs(<threng:material:11> * 2, <ore:dustStygian>)
-    .outputs(<threng:material:12>)
-    .duration(132)
-    .EUt(128)
-.buildAndRegister();
-
-//Speculative Core x64
-recipes.remove(<threng:material:13>);
-forming.recipeBuilder()
-    .inputs(<threng:material:12> * 2, <threng:material:1>)
-    .outputs(<threng:material:13>)
-    .duration(164)
-    .EUt(128)
-.buildAndRegister();
-
-//Mass Assembler Frame
-recipes.remove(<threng:big_assembler>);
-chemical_bath.recipeBuilder()
-    .fluidInputs([<liquid:dark_steel> * 288])
-    .inputs(<appliedenergistics2:fluix_block>)
-    .outputs(<threng:big_assembler>)
-    .duration(80)
-    .EUt(300)
-.buildAndRegister();
-
-//Mass Assembler Vent
-recipes.remove(<threng:big_assembler:1>);
-assembler.recipeBuilder()
-    .inputs([<threng:big_assembler>, <ore:rotorEnderium>, <ore:lightPlateDarkSteel> * 3])
-    .property("circuit", 22)    
-    .outputs(<threng:big_assembler:1>)
-    .duration(80)
-    .EUt(300)
-.buildAndRegister();
-
-// ME Level Maintainer
-recipes.remove(<threng:machine:4>);
-recipes.addShaped(<threng:machine:4> * 1, [[<ore:ingotFluixSteel>, <appliedenergistics2:material:53>, <ore:ingotFluixSteel>], [<contenttweaker:estimation_processor>, <thermalexpansion:frame:131>, <contenttweaker:estimation_processor>],[<ore:ingotFluixSteel>, <threng:material:4>, <ore:ingotFluixSteel>]]);
-
-// Preemptive Assembly Unit
-recipes.remove(<threng:machine:3>);
-recipes.addShaped(<threng:machine:3> * 1, [[<ore:ingotFluixSteel>, <threng:material:4>, <ore:ingotFluixSteel>], [<appliedenergistics2:crafting_accelerator>, <thermalexpansion:frame:131>, <appliedenergistics2:crafting_accelerator>],[<ore:ingotFluixSteel>, <appliedenergistics2:interface>, <ore:ingotFluixSteel>]]);
-
-// Crystal Energizer
-recipes.remove(<threng:machine:5>);
-recipes.addShaped(<threng:machine:5> * 1, [[<ore:ingotFluixSteel>, <threng:material:4>, <ore:ingotFluixSteel>], [<ore:springDawnstone>, <thermalexpansion:frame:129>, <ore:springDawnstone>],[<ore:ingotFluixSteel>, <appliedenergistics2:dense_energy_cell>, <ore:ingotFluixSteel>]]);
-
-
-//Fluix Logic Unit
-recipes.remove(<threng:material:4>);
-circuit_assembler.recipeBuilder()
-    .inputs([<threng:material:1>*2, <ore:boltHslaSteel>*6, <ore:lightPlateTitanium>])
-    .fluidInputs([<liquid:soldering_alloy> * 72])
-    .property("cleanroom", "cleanroom")
-    .outputs(<threng:material:4>)
-    .duration(300)
-    .EUt(500)
-.buildAndRegister();
 
 // ========================================================================= //
 
@@ -428,7 +361,7 @@ recipes.addShaped(<appliedenergistics2:condenser>, [[<ore:plateHslaSteel>,<appli
 
 # Energy Acceptor
 recipes.remove(<appliedenergistics2:energy_acceptor>);
-recipes.addShaped(<appliedenergistics2:energy_acceptor>, [[<ore:plateStainlessSteel>,<appliedenergistics2:part:16>,<ore:plateStainlessSteel>],[<appliedenergistics2:part:16>,<plustic:battery_cell>.withTag({Material: "manyullyn"}),<appliedenergistics2:part:16>],[<ore:plateStainlessSteel>,<appliedenergistics2:part:16>,<ore:plateStainlessSteel>]]);
+recipes.addShaped(<appliedenergistics2:energy_acceptor>, [[<ore:plateStainlessSteel>,<appliedenergistics2:part:16>,<ore:plateStainlessSteel>],[<appliedenergistics2:part:16>,<appliedenergistics2:dense_energy_cell>,<appliedenergistics2:part:16>],[<ore:plateStainlessSteel>,<appliedenergistics2:part:16>,<ore:plateStainlessSteel>]]);
 
 # Energy Cell
 recipes.remove(<appliedenergistics2:energy_cell>);
@@ -921,9 +854,127 @@ recipes.addShaped(<aeadditions:part.base:6>, [[null,<appliedenergistics2:materia
 recipes.remove(<aeadditions:gas_interface>);
 recipes.addShaped(<aeadditions:gas_interface>, [[<ore:empoweredGlodCrystal>,<contenttweaker:methodology_processor>,<ore:empoweredGlodCrystal>],[<appliedenergistics2:material:44>,<gregtech:machine_casing:4>,<appliedenergistics2:material:43>],[<ore:empoweredGlodCrystal>,<contenttweaker:methodology_processor>,<ore:empoweredGlodCrystal>]]);
 
+# [Packaging Component]*4 from [Eye of Ender][+3]
+recipes.removeByRecipeName("packagedauto:package_component");
+craft.make(<packagedauto:package_component> * 4, ["pretty",
+  "□ : □",
+  "c ◊ c",
+  "□ : □"], {
+  "□": <ore:lightPlateAdvancedAlloy>,           # Light Advanced Alloy Plate
+  ":": <ore:oc:materialCircuitBoardPrinted>,    # Printed Circuit Board (PCB)
+  "c": <ore:oc:circuitChip3>,                   # Microchip (Tier 3)
+  "◊": <ore:gemEnderEye> | <ore:pearlEnderEye>, # Eye of Ender
+});
 
+# [ME Packaging Component] from [Packaging Component][+4]
+recipes.removeByRecipeName("packagedauto:me_package_component");
+craft.make(<packagedauto:me_package_component>, ["pretty",
+  "□ ⌃ □",
+  "A P F",
+  "□ ⌃ □"], {
+  "□": <ore:lightPlateAdvancedAlloy>,      # Light Advanced Alloy Plate
+  "⌃": <appliedenergistics2:quartz_glass>, # Dense Quartz Glass
+  "A": <appliedenergistics2:material:44>,  # Annihilation Core
+  "P": <packagedauto:package_component>,   # Packaging Component
+  "F": <appliedenergistics2:material:43>,  # Formation Core
+});
 
+# [Packager] from [Advanced Packager III][+4]
+recipes.removeByRecipeName("packagedauto:packager");
+craft.make(<packagedauto:packager>, ["pretty",
+  "□ M □",
+  "* A *",
+  "□ S □"], {
+  "□": <ore:plateAdvancedAlloy>,            # Advanced Alloy Plate
+  "M": <packagedauto:me_package_component>, # ME Packaging Component
+  "*": <quantumflux:craftingpiece>,         # Quibit Crystal
+  "A": <gregtech:machine:503>,              # Advanced Packager III
+  "S": <threng:material:14>,                # Speculative Processor
+});
 
+# [Package Recipe Encoder] from [Database Upgrade (Tier 3)][+4]
+recipes.removeByRecipeName("packagedauto:encoder");
+craft.make(<packagedauto:encoder>, ["pretty",
+  "□ P □",
+  "C : C",
+  "□ E □"], {
+  "□": <ore:plateAdvancedAlloy>,              # Advanced Alloy Plate
+  "P": <packagedauto:package_component>,      # Packaging Component
+  "C": <avaritia:compressed_crafting_table>,  # Compressed Crafting Table
+  ":": <ore:oc:databaseUpgrade3>,             # Database Upgrade (Tier 3)
+  "E": <contenttweaker:estimation_processor>, # Estimation Processor
+});
+
+# [Unpackager] from [Advanced Packager III][+4]
+recipes.removeByRecipeName("packagedauto:unpackager");
+craft.make(<packagedauto:unpackager>, ["pretty",
+  "□ M □",
+  "* A *",
+  "□ S □"], {
+  "□": <ore:plateAdvancedAlloy>,            # Advanced Alloy Plate
+  "M": <packagedauto:me_package_component>, # ME Packaging Component
+  "*": <quantumflux:craftingpiece>,         # Quibit Crystal
+  "A": <gregtech:machine:503>,              # Advanced Packager III
+  "S": <threng:material:14>,                # Speculative Processor
+});
+
+# [Packager Extension] from [Advanced Packager III][+4]
+recipes.removeByRecipeName("packagedauto:packager_extension");
+craft.make(<packagedauto:packager_extension>, ["pretty",
+  "□ M □",
+  ": A :",
+  "□ S □"], {
+  "□": <ore:plateAdvancedAlloy>,            # Advanced Alloy Plate
+  "M": <packagedauto:me_package_component>, # ME Packaging Component
+  ":": <ore:oc:circuitChip3>,               # Microchip (Tier 3)
+  "A": <gregtech:machine:503>,              # Advanced Packager III
+  "S": <threng:material:14>,                # Speculative Processor
+});
+
+# [Package Recipe Holder]*4 from [Packaging Component][+2]
+recipes.removeByRecipeName("packagedauto:recipe_holder");
+craft.make(<packagedauto:recipe_holder> * 4, ["pretty",
+  "п □ п",
+  "□ P □",
+  "п □ п"], {
+  "п": <ore:plateAdvancedAlloy>,         # Advanced Alloy Plate
+  "□": <ore:plateAwakenedDraconium>,     # Awakened Draconium Plate
+  "P": <packagedauto:package_component>, # Packaging Component
+});
+
+# [Crystal Growth Accelerator] from [Fluix Block][+3]
+recipes.removeByRecipeName("appliedenergistics2:network/blocks/crystal_processing_quartz_growth_accelerator");
+craft.make(<appliedenergistics2:quartz_growth_accelerator>, ["pretty",
+  "□ M □",
+  "⌃ п ⌃",
+  "□ M □"], {
+  "□": <ore:plateStainlessSteel>,          # Stainless Steel Plate
+  "M": <appliedenergistics2:part:16>,      # ME Glass Cable - Fluix
+  "⌃": <appliedenergistics2:quartz_glass>, # Dense Quartz Glass
+  "п": <appliedenergistics2:fluix_block>,  # Fluix Block
+});
+
+# [Certus Quartz Wrench] from [Flawless Certus Quartz][+2]
+recipes.removeByRecipeName("appliedenergistics2:tools/certus_quartz_wrench");
+craft.make(<appliedenergistics2:certus_quartz_wrench>, ["pretty",
+  "  ⌃  ",
+  "⌃ ^ ⌃",
+  "F ⌃  "], {
+  "⌃": <ore:plateCertusQuartz>,       # Certus Quartz Plate
+  "^": <ore:gemFlawlessCertusQuartz>, # Flawless Certus Quartz
+  "F": <ore:gtceFiles>,               # Iron File
+});
+
+# [Nether Quartz Wrench] from [Flawless Nether Quartz][+2]
+recipes.removeByRecipeName("appliedenergistics2:tools/nether_quartz_wrench");
+craft.make(<appliedenergistics2:nether_quartz_wrench>, ["pretty",
+  "  ⌃  ",
+  "⌃ ^ ⌃",
+  "F ⌃  "], {
+  "⌃": <ore:plateNetherQuartz>,       # Nether Quartz Plate
+  "^": <ore:gemFlawlessNetherQuartz>, # Flawless Nether Quartz
+  "F": <ore:gtceFiles>,               # Iron File
+});
 
 
 

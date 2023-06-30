@@ -1,5 +1,5 @@
 {
-	title: "1. Where all the Dark Magic begins",
+	title: "&61.&f Where all the Dark Magic begins",
 	icon: "evilcraft:burning_gem_stone",
 	always_invisible: false,
 	group: 30328884,
@@ -11,17 +11,6 @@
 		height: 2.0d,
 		rotation: 0.0d,
 		image: "assets:pluma/quests/verticalline.png",
-		hover: [],
-		click: "",
-		dev: false
-	},
-	{
-		x: 10.0d,
-		y: -6.0d,
-		width: 2.0d,
-		height: 1.0d,
-		rotation: 0.0d,
-		image: "assets:pluma/quests/horizontalline.png",
 		hover: [],
 		click: "",
 		dev: false

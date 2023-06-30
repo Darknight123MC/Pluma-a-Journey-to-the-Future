@@ -14,7 +14,7 @@ item.material.oreprefix.orePurified=Purified %s Ore
 item.material.oreprefix.enrichedEgg=%s Enriched Egg
 item.material.oreprefix.casing=%s Casing
 
-material.astral_starmetal=Starmetal
+material.starmetal=Starmetal
 
 material.lumium=Lumium
 material.enderium=Enderium
@@ -204,3 +204,12 @@ material.chloroauric_acid=Chloroauric Acid
 material.potassium_metabisulfite=Potassium Metabisulfite
 
 material.advanced_alloy=Advanced Alloy
+
+material.thaumium=Thaumium
+material.void=Void Metal
+material.mithrillium=Mithrillium
+material.thaumic_steel=Thaumic Steel
+
+material.osgloglas=Osgloglas
+material.alumite=Alumite
+material.mirion=Mirion

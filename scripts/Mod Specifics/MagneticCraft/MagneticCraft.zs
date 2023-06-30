@@ -110,7 +110,7 @@ mixer.recipeBuilder()
 recipes.remove(<magneticraft:shelving_unit>);
 assembler.recipeBuilder()
 	.inputs(<ore:paper>, <ore:heavyPlateIron>, <ore:chestWood>)
-    .property("circuit", 20)
+    .circuit(20)
 	.outputs(<magneticraft:shelving_unit>)   
 	.duration(600)
 	.EUt(12)
@@ -120,7 +120,7 @@ assembler.recipeBuilder()
 recipes.remove(<magneticraft:container>);
 assembler.recipeBuilder()
 	.inputs(<ore:paper>, <ore:heavyPlateSteel>, <pyrotech:stash_stone>)
-    .property("circuit", 20)
+    .circuit(20)
 	.outputs(<magneticraft:container>)   
 	.duration(600)
 	.EUt(12)
@@ -130,7 +130,7 @@ assembler.recipeBuilder()
 recipes.remove(<magneticraft:big_electric_furnace>);
 assembler.recipeBuilder()
 	.inputs(<ore:paper>, <ore:lightPlateLead>, <gregtech:machine:16>)
-    .property("circuit", 20)
+    .circuit(20)
 	.outputs(<magneticraft:big_electric_furnace>)   
 	.duration(600)
 	.EUt(12)
@@ -194,98 +194,14 @@ recipes.remove(<magneticraft:water_generator>);
 recipes.addShapeless("BowlToWaterGen", <magneticraft:water_generator>, [<roots:unending_bowl>, <ore:gtceWrenches>, <ore:gtceScrewdrivers>]);
 recipes.addShapeless("WaterGenToBowl", <roots:unending_bowl>, [<magneticraft:water_generator>, <ore:gtceWrenches>, <ore:gtceScrewdrivers>]);
 
-/*
-// Light Plates ===============================================================================================================
+# [Iron Mesh] from [Light Vanadiumsteel Plate][+1]
+<magneticraft:crafting:5>.displayName = "Vanadiumsteel Mesh Component";
 
-extruder.recipeBuilder()
-    .inputs([<ore:plateIron>])
-    .notConsumable(<gregtech:meta_item_1:31>)
-    .outputs(<ore:lightPlateIron>.firstItem)
-    .duration(100)
-    .EUt(350)
-.buildAndRegister();
-
-extruder.recipeBuilder()
-    .inputs([<ore:plateCopper>])
-    .notConsumable(<gregtech:meta_item_1:31>)
-    .outputs(<ore:lightPlateCopper>.firstItem)
-    .duration(100)
-    .EUt(350)
-.buildAndRegister();
-
-extruder.recipeBuilder()
-    .inputs([<ore:plateGold>])
-    .notConsumable(<gregtech:meta_item_1:31>)
-    .outputs(<ore:lightPlateGold>.firstItem)
-    .duration(100)
-    .EUt(350)
-.buildAndRegister();
-
-extruder.recipeBuilder()
-    .inputs([<ore:plateLead>])
-    .notConsumable(<gregtech:meta_item_1:31>)
-    .outputs(<ore:lightPlateLead>.firstItem)
-    .duration(100)
-    .EUt(350)
-.buildAndRegister();
-
-extruder.recipeBuilder()
-    .inputs([<ore:plateSteel>])
-    .notConsumable(<gregtech:meta_item_1:31>)
-    .outputs(<ore:lightPlateSteel>.firstItem)
-    .duration(100)
-    .EUt(350)
-.buildAndRegister();
-
-extruder.recipeBuilder()
-    .inputs([<ore:plateTungsten>])
-    .notConsumable(<gregtech:meta_item_1:31>)
-    .outputs(<ore:lightPlateTungsten>.firstItem)
-    .duration(100)
-    .EUt(350)
-.buildAndRegister();
-
-// Heavy Plates ==================================================================================================================
-
-compressor.recipeBuilder()
-    .inputs(<ore:lightPlateIron>*2)
-    .outputs(<ore:heavyPlateIron>.firstItem)
-    .duration(150)
-    .EUt(350)
-.buildAndRegister();
-
-compressor.recipeBuilder()
-    .inputs(<ore:lightPlateGold>*2)
-    .outputs(<ore:heavyPlateGold>.firstItem)
-    .duration(150)
-    .EUt(350)
-.buildAndRegister();
-
-compressor.recipeBuilder()
-    .inputs(<ore:lightPlateCopper>*2)
-    .outputs(<ore:heavyPlateCopper>.firstItem)
-    .duration(150)
-    .EUt(350)
-.buildAndRegister();
-
-compressor.recipeBuilder()
-    .inputs(<ore:lightPlateLead>*2)
-    .outputs(<ore:heavyPlateLead>.firstItem)
-    .duration(150)
-    .EUt(350)
-.buildAndRegister();
-
-compressor.recipeBuilder()
-    .inputs(<ore:lightPlateTungsten>*2)
-    .outputs(<ore:heavyPlateTungsten>.firstItem)
-    .duration(150)
-    .EUt(350)
-.buildAndRegister();
-
-compressor.recipeBuilder()
-    .inputs(<ore:lightPlateSteel>*2)
-    .outputs(<ore:heavyPlateSteel>.firstItem)
-    .duration(150)
-    .EUt(350)
-.buildAndRegister();
-*/
+recipes.removeByRecipeName("magneticraft:crafting_mesh");
+craft.make(<magneticraft:crafting:5>, ["pretty",
+  "t t t",
+  "t □ t",
+  "t t t"], {
+  "t": <pyrotech:material:26>,        # Durable Twine
+  "□": <ore:lightPlateVanadiumSteel>, # Light Vanadiumsteel Plate
+});

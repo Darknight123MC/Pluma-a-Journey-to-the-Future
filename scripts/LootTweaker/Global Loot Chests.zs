@@ -30,7 +30,13 @@ var itemsToRemove as string[] = [
 	"railcraft:cart_tnt_wood",
 	"railcraft:ingot",
 	"railcraft:gear",
-	"railcraft:fluid_bottle_creosote"
+	"railcraft:fluid_bottle_creosote",
+
+	"thermalfoundation:material:771",
+
+	"astralsorcery:itemcraftingcomponent",
+	
+	"fossil:ancient_glass"
 
 ];
 

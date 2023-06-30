@@ -19,6 +19,8 @@ Alloying.removeRecipe(<liquid:hard_carbon>);
 Alloying.removeRecipe(<liquid:magnesium_diboride>);
 Alloying.removeRecipe(<liquid:lead_platinum>);
 Alloying.removeRecipe(<liquid:enderium>);
+Alloying.removeRecipe(<liquid:energetic_silver>);
+Alloying.removeRecipe(<liquid:energetic_alloy>);
 
 Alloying.removeRecipe(<liquid:osgloglas>, [<liquid:refinedglowstone>, <liquid:refinedobsidian>, <liquid:osmium>]);
 Alloying.removeRecipe(<liquid:osmiridium>, [<liquid:iridium>, <liquid:osmium>]);
@@ -46,5 +48,11 @@ AlloySmelter.addRecipe(<ore:ingotAlubrass>.firstItem*4, [<ore:ingotAluminium>*3,
 <recipemap:fluid_solidifier>.findRecipe(7, [<metaitem:shape.mold.block>], [<liquid:osmiridium> * 1296]).remove();
 IngotFormer.removeRecipeWithOutput(<ore:ingotOsmiridium>);
 
+// Fixing Alumite
+Alloying.removeRecipe(<liquid:alumite>);
+Alloying.addRecipe(<liquid:alumite> * 3, [<liquid:aluminium> * 5, <liquid:iron> * 2, <liquid:obsidian> * 2]);
 
-
+//Adding a Recipe to PigIron
+Alloying.addRecipe(<liquid:pigiron> * 144, [<liquid:iron> * 144, <liquid:clay> * 72, <liquid:blood> * 80]);
+Alloying.addRecipe(<liquid:pigiron> * 288, [<liquid:iron> * 144, <liquid:clay> * 144, <liquid:evilcraftblood> * 80]);
+Alloying.addRecipe(<liquid:pigiron> * 576, [<liquid:iron> * 144, <liquid:clay> * 144, <liquid:lifeessence> * 80]);

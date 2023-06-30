@@ -502,12 +502,14 @@ val ancient_metal = MaterialBuilder(32056, "ancient_metal")
 val refined_glue = MaterialBuilder(32057, "refined_glue")
     .fluid("fluid")
     .iconSet("dull")
+    .flags(["GENERATE_PLATE", "GENERATE_FOIL", "GENERATE_INGOT"])
     .color(0xebb360)
     .build();
 
 val super_glue = MaterialBuilder(32058, "super_glue")
     .fluid("fluid")
     .iconSet("dull")
+    .flags(["GENERATE_PLATE", "GENERATE_FOIL", "GENERATE_INGOT"])
     .color(0xE8E2CF)
     .build();
 
@@ -593,9 +595,9 @@ var moon = MaterialBuilder(32069, "moon")
 
 # 32072 is used for Omothol Stone
 
-val astral_starmetal = MaterialBuilder(32073, "astral_starmetal")
-    .ingot()
-    .iconSet("shiny")
+val starmetal = MaterialBuilder(32073, "starmetal")
+    .ingot().fluid("fluid").ore(1, 1, true)
+    .iconSet("DULL")
     .color(0x1c1cba)
     .flags(["GENERATE_GEAR", "GENERATE_DENSE", "GENERATE_ROTOR", "GENERATE_SMALL_GEAR", "GENERATE_SPRING_SMALL", "GENERATE_SPRING", "GENERATE_FOIL", "GENERATE_DOUBLE_PLATE"])
     .build();
@@ -678,6 +680,58 @@ val advanced_alloy = MaterialBuilder(32083, "advanced_alloy")
     .iconSet("metallic")
     .color(0x858276)
     .flags(["GENERATE_GEAR", "GENERATE_DENSE", "GENERATE_ROTOR", "GENERATE_SMALL_GEAR", "GENERATE_SPRING_SMALL", "GENERATE_SPRING", "GENERATE_FOIL", "GENERATE_DOUBLE_PLATE"])
+    .build();
+
+var thaumium = MaterialBuilder(32084, "thaumium")
+    .ingot()
+    .color(0x591f8f)
+    .components([<material:iron> * 1])
+    .flags(["DISABLE_DECOMPOSITION", "GENERATE_GEAR", "GENERATE_DENSE", "GENERATE_ROTOR", "GENERATE_SMALL_GEAR", "GENERATE_SPRING_SMALL", "GENERATE_SPRING", "GENERATE_FOIL", "GENERATE_DOUBLE_PLATE"])
+    .iconSet("shiny")
+    .build();
+
+var voidmetal = MaterialBuilder(32085, "void")
+    .ingot()
+    .color(0x2B0051)
+    .flags(["GENERATE_GEAR", "GENERATE_DENSE", "GENERATE_ROTOR", "GENERATE_SMALL_GEAR", "GENERATE_SPRING_SMALL", "GENERATE_SPRING", "GENERATE_FOIL", "GENERATE_DOUBLE_PLATE"])
+    .iconSet("dull")
+    .build();
+    <material:void>.setFormula("§5§kV");
+
+// var mithrillium = MaterialBuilder(32086, "mithrillium")
+//     .ingot()
+//     .color(0x39829d)
+//     .flags(["GENERATE_GEAR", "GENERATE_DENSE", "GENERATE_ROTOR", "GENERATE_SMALL_GEAR", "GENERATE_SPRING_SMALL", "GENERATE_SPRING", "GENERATE_FOIL", "GENERATE_DOUBLE_PLATE"])
+//     .iconSet("dull")
+//     .build();
+
+var thaumic_steel = MaterialBuilder(32087, "thaumic_steel")
+    .ingot()
+    .color(0x3e2e4d)
+    .blastTemp(3500, "LOW")
+    .flags(["GENERATE_GEAR", "GENERATE_DENSE", "GENERATE_ROTOR", "GENERATE_SMALL_GEAR", "GENERATE_SPRING_SMALL", "GENERATE_SPRING", "GENERATE_FOIL", "GENERATE_DOUBLE_PLATE"])
+    .iconSet("dull")
+    .build();
+
+var osgloglas = MaterialBuilder(32088, "osgloglas")
+    .ingot().fluid("fluid")
+    .color(0x75f754)
+    .flags(["GENERATE_GEAR", "GENERATE_DENSE", "GENERATE_ROTOR", "GENERATE_SMALL_GEAR", "GENERATE_SPRING_SMALL", "GENERATE_SPRING", "GENERATE_FOIL", "GENERATE_DOUBLE_PLATE"])
+    .iconSet("dull")
+    .build();
+
+var alumite = MaterialBuilder(32089, "alumite")
+    .ingot().fluid("fluid")
+    .color(0xfa9dfa)
+    .flags(["GENERATE_GEAR", "GENERATE_DENSE", "GENERATE_ROTOR", "GENERATE_SMALL_GEAR", "GENERATE_SPRING_SMALL", "GENERATE_SPRING", "GENERATE_FOIL", "GENERATE_DOUBLE_PLATE"])
+    .iconSet("dull")
+    .build();
+
+var mirion = MaterialBuilder(32090, "mirion")
+    .ingot().fluid("fluid")
+    .color(0xdbfc7e)
+    .flags(["GENERATE_GEAR", "GENERATE_DENSE", "GENERATE_ROTOR", "GENERATE_SMALL_GEAR", "GENERATE_SPRING_SMALL", "GENERATE_SPRING", "GENERATE_FOIL", "GENERATE_DOUBLE_PLATE"])
+    .iconSet("dull")
     .build();
 
 // ==============================================================================

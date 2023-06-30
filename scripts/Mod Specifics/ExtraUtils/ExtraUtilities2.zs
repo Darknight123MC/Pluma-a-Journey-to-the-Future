@@ -1,11 +1,15 @@
 import crafttweaker.item.IItemStack;
 import crafttweaker.item.IIngredient;
 import mods.astralsorcery.Altar;
+import mods.artisanworktables.builder.RecipeBuilder;
+import mods.tconstruct.Casting as Casting;
+import mods.tconstruct.Melting as Melting;
+import mods.nuclearcraft.Melter;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//			         																														 //
-//			Extra Utilities 2 Script                                                                                                         //
-//			         																													 	 //
+//			         																														                                                                 //
+//			Extra Utilities 2 Script                                                                                                             //
+//			         																													 	                                                                 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Materials ================================================================================================ //
@@ -422,11 +426,11 @@ craft.make(<extrautils2:angelblock>, ["pretty",
 recipes.removeByRecipeName("extrautils2:redstone_clock");
 craft.make(<extrautils2:redstoneclock>, ["pretty",
   "s ♥ s",
-  "♥ □ ♥",
+  "♥ P ♥",
   "s ♥ s"], {
-  "s": <ore:stone>, 					      # Stone
-  "♥": <ore:dustRedstone> | <ore:alloyBasic>, # Redstone
-  "□": <minecraft:clock>					  # Clock
+  "s": <ore:stone>,                           # Stone
+  "♥": <ore:dustRedstone>,                    # Redstone
+  "P": <projectred-core:resource_item:12>,    # Pointer
 });
 
 # [Analog Crafter] from [Crafting Table][+2]
@@ -498,3 +502,90 @@ craft.make(<extrautils2:glasscutter>, ["pretty",
   "I": <ore:ringIron>,                           # Iron Ring
   "T": <ore:gtceFiles>, 						 # File
 });
+
+//Golden Lasso
+recipes.remove(<extrautils2:goldenlasso>);
+RecipeBuilder.get("mage")
+  .setShaped([
+    [<ore:empoweredGlodCrystal>, <natura:materials:7>, <ore:empoweredGlodCrystal>],
+    [<natura:materials:7>, null, <natura:materials:7>],
+    [<ore:empoweredGlodCrystal>, <natura:materials:7>, <ore:empoweredGlodCrystal>]])
+  .setFluid(<liquid:xpjuice> * 1000)
+  .addTool(<ore:artisansGrimoire>, 25)
+  .addOutput(<extrautils2:goldenlasso>)
+.create();
+
+//Cursed Lasso
+recipes.remove(<extrautils2:goldenlasso:1>);
+RecipeBuilder.get("mage")
+  .setShapeless([<extrautils2:goldenlasso>, <ore:dropofevil>, <darkutils:material>])
+  .setFluid(<liquid:xpjuice> * 250)
+  .addTool(<ore:artisansGrimoire>, 25)
+  .addOutput(<extrautils2:goldenlasso:1>)
+.create();
+
+//Chicken Ring
+recipes.remove(<extrautils2:chickenring>);
+RecipeBuilder.get("mage")
+  .setShaped([
+    [<ore:feyFeather>, <ore:plateIron>, <ore:feyFeather>],
+    [<ore:plateIron>, <extrautils2:goldenlasso>.withTag({Animal: {id: "minecraft:chicken"}, No_Place: 1 as byte}), <ore:plateIron>],
+    [<ore:gemRedstone>, <ore:plateIron>, <ore:gemRedstone>]])
+  .addTool(<artisanworktables:artisans_grimoire_iron>, 20)
+  .addOutput(<extrautils2:chickenring>)
+.create();
+
+//Chicken Ring
+recipes.remove(<extrautils2:chickenring:1>);
+RecipeBuilder.get("mage")
+  .setShaped([
+    [<minecraft:dye>, <ore:plateDiamond>, <minecraft:dye>],
+    [<mysticalworld:epic_squid>, <extrautils2:chickenring>, <mysticalworld:epic_squid>],
+    [<minecraft:dye>, <ore:plateDiamond>, <minecraft:dye>]])
+  .setFluid(<liquid:water> * 8000)
+  .addTool(<artisanworktables:artisans_grimoire_iron>, 20)
+  .addOutput(<extrautils2:chickenring:1>)
+.create();
+
+//Sun Crystal ===============================================================
+recipes.removeByRecipeName("extrautils2:sun_crystal");
+
+//(Normal Recipe can be found in Empowerer.zs and also the ExtendedCrafting.zs)
+
+chemical_bath.recipeBuilder()
+  .inputs(<extrautils2:suncrystal:250>)
+  .fluidInputs(<liquid:liquid_sunshine>*1000)
+  .outputs(<extrautils2:suncrystal>)
+  .duration(80)
+  .EUt(48)
+.buildAndRegister();
+
+<extrautils2:suncrystal:*>.addTooltip(format.darkGray(format.italic("<Hold Shift for more info>")));
+<extrautils2:suncrystal:*>.addShiftTooltip(format.green("Drop it on the Ground") + format.white(" to ") + format.yellow("Recharge it with the Power of the Sun."));
+<extrautils2:suncrystal:*>.addShiftTooltip(format.white("Can also be made in ") + format.gold("A Chemical Bath") + format.white(" with ") + format.yellow("1 Bucket of Liquid Sunshine"));
+<extrautils2:suncrystal:*>.addShiftTooltip(format.red("(but it must be completely damaged!)"));
+
+# Ferrous Juniper Integration =========================================================================================
+furnace.remove(<*>, <extrautils2:ironwood_planks>);
+furnace.remove(<*>, <extrautils2:ironwood_planks:1>);
+
+Casting.addTableRecipe(<extrautils2:ironwood_sapling>, <ore:treeSapling>, <liquid:iron>, 576, true);
+
+# Unburnt =====
+//extractor.recipeBuilder().inputs(<extrautils2:ironwood_log:0>).fluidOutputs(<liquid:iron> *  16).duration(80).EUt(16).buildAndRegister();
+Melting.addRecipe(<liquid:iron> * 16, <extrautils2:ironwood_log:0>);
+mods.nuclearcraft.Melter.addRecipe(<extrautils2:ironwood_log:0>, <liquid:iron> * 16);
+
+//extractor.recipeBuilder().inputs(<extrautils2:ironwood_planks:0>).fluidOutputs(<liquid:iron> *  8).duration(80).EUt(16).buildAndRegister();
+Melting.addRecipe(<liquid:iron> * 8, <extrautils2:ironwood_planks:0>);
+mods.nuclearcraft.Melter.addRecipe(<extrautils2:ironwood_planks:0>, <liquid:iron> * 8);
+
+# Burnt =====
+//extractor.recipeBuilder().inputs(<extrautils2:ironwood_log:1>).fluidOutputs(<liquid:iron> * 144).duration(80).EUt(16).buildAndRegister();
+Melting.addRecipe(<liquid:iron> * 144, <extrautils2:ironwood_log:1>);
+mods.nuclearcraft.Melter.addRecipe(<extrautils2:ironwood_log:1>, <liquid:iron> * 144);
+
+//extractor.recipeBuilder().inputs(<extrautils2:ironwood_planks:1>).fluidOutputs(<liquid:iron> *  80).duration(80).EUt(16).buildAndRegister();
+Melting.addRecipe(<liquid:iron> * 80, <extrautils2:ironwood_planks:1>);
+mods.nuclearcraft.Melter.addRecipe(<extrautils2:ironwood_planks:1>, <liquid:iron> * 80);
+
